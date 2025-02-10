@@ -39,7 +39,7 @@
         font-size: 0.9rem;
         line-height: 1.5;
       }
-      /* Vergrößerter Countdown für bessere Sichtbarkeit (auch mobil optimiert) */
+      /* Vergrößerter Countdown – gut sichtbar auch auf Mobilgeräten */
       .timer-display {
         margin-top: 1rem;
         font-weight: bold;
@@ -66,6 +66,7 @@
         object-fit: cover;
         border: 1px solid #ccc;
         border-radius: 4px;
+        cursor: pointer;
       }
 
       /* Button Styles – From Uiverse.io by Madflows */
@@ -131,6 +132,26 @@
         box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
         transform: translateY(5px);
         transition: 200ms;
+      }
+
+      /* Modal Styles für die Bildansicht */
+      .image-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+      .image-modal img {
+        max-width: 90%;
+        max-height: 90%;
+        border: 5px solid #fff;
+        border-radius: 10px;
       }
     </style>
   </head>
@@ -239,10 +260,20 @@
       <div class="timer-display" id="cooldown-timer"></div>
     </div>
 
+    <!-- Modal für große Bildansicht -->
+    <div
+      id="image-modal"
+      class="image-modal"
+      style="display: none"
+      onclick="closeImageModal()"
+    >
+      <img id="modal-img" src="" alt="Großansicht" />
+    </div>
+
     <script>
       /* ====================================
        Globale Konstanten & Variablen
-       Zeiten pro Übung in Sekunden:
+       Zeiten pro Übung (Sekunden):
          - Mobilisation: 60 Sek. pro Übung (5 Übungen = 5 Min)
          - Koordination & Aktivierung: 105 Sek. (4 Übungen = 7 Min)
          - Strength & Power: 113 Sek. (8 Übungen = 15 Min)
@@ -291,11 +322,22 @@
         return shuffled.slice(0, count);
       }
 
-      // Erzeugt HTML für einen Übungseintrag mit Text, empfohlener Zeit/Wdh. und einem Bild
+      /* 
+      Erzeugt HTML für einen Übungseintrag mit Text, empfohlener Zeit/Wdh. und einem Bild.
+      Hier wird die Unsplash Source API genutzt. Der exerciseName wird als Suchbegriff genutzt,
+      sodass sowohl das kleine Bild (60x60) als auch das große Bild (300x300) möglichst passgenaue
+      Übungsbilder anzeigen.
+    */
       function renderExerciseItem(exerciseName, instruction) {
+        const smallUrl =
+          "https://source.unsplash.com/60x60/?" +
+          encodeURIComponent(exerciseName);
+        const largeUrl =
+          "https://source.unsplash.com/300x300/?" +
+          encodeURIComponent(exerciseName);
         return `<div class="exercise-item">
                 <div class="exercise-text">${exerciseName} - ${instruction}</div>
-                <img src="https://dummyimage.com/60x60/cccccc/ffffff&text=Übung" alt="${exerciseName}" class="exercise-image">
+                <img src="${smallUrl}" alt="${exerciseName}" class="exercise-image" onclick="openImageModal('${largeUrl}')" />
               </div>`;
       }
 
@@ -543,8 +585,8 @@
 
       /* ====================================
        Generationsfunktionen pro Kategorie
-       Bei jedem Klick wird ein eventuell laufender Timer abgebrochen,
-       der jeweilige Index zurückgesetzt und die Timeranzeige geleert.
+       (Bei jedem Klick wird ein eventuell laufender Timer abgebrochen,
+       der jeweilige Index zurückgesetzt und die Timeranzeige geleert.)
     ==================================== */
       function generateMobilisation() {
         if (mobilisationIntervalId) {
@@ -669,7 +711,7 @@
       /* ====================================
        Timer-Funktionalität pro Kategorie
        Der Timer läuft automatisch von Übung zu Übung.
-       Während der letzten 5 Sekunden jeder Übung ertönt in jeder Sekunde ein Beep und der Abschnitt flackert rot.
+       Während der letzten 5 Sekunden jeder Übung ertönt jede Sekunde ein Beep und der Abschnitt flackert rot.
     ==================================== */
       function startMobilisationTimer() {
         if (currentMobilisationExercises.length === 0) {
@@ -1027,6 +1069,17 @@
         setTimeout(function () {
           section.style.backgroundColor = originalBg;
         }, 500);
+      }
+
+      /* ====================================
+       Modal-Funktionen für Bildansicht
+    ==================================== */
+      function openImageModal(src) {
+        document.getElementById("modal-img").src = src;
+        document.getElementById("image-modal").style.display = "flex";
+      }
+      function closeImageModal() {
+        document.getElementById("image-modal").style.display = "none";
       }
     </script>
   </body>
