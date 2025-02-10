@@ -289,7 +289,7 @@
       const TIME_COOLDOWN = 45;
 
       // Mapping für Übungsbilder – hier kannst du für jeden Übungsnamen (exakt wie in der Liste)
-      // einen passenden Pixabay-Link (oder anderen Link) hinterlegen.
+      // einen passenden Bild-URL (z. B. von Pixabay) hinterlegen.
       const exerciseImages = {
         "Cat-Cow Stretch":
           "https://cdn.pixabay.com/photo/2017/08/06/21/45/yoga-2598283_640.jpg",
@@ -326,6 +326,22 @@
       const beep = new Audio(
         "https://www.myinstants.com/media/sounds/beep.mp3"
       );
+      beep.preload = "auto";
+      beep.load();
+
+      // Funktion zum "Unlocken" des Audio-Kontextes (wichtig für iOS)
+      function unlockAudioContext() {
+        if (beep.paused) {
+          beep
+            .play()
+            .then(() => {
+              beep.pause();
+            })
+            .catch((error) => {
+              console.error("Audio Unlock Error:", error);
+            });
+        }
+      }
 
       /* ====================================
        Hilfsfunktionen
@@ -729,6 +745,8 @@
        Während der letzten 5 Sekunden jeder Übung ertönt jede Sekunde ein Beep und der Abschnitt flackert rot.
     ==================================== */
       function startMobilisationTimer() {
+        // Unlock Audio-Kontext (wichtig für iOS)
+        unlockAudioContext();
         if (currentMobilisationExercises.length === 0) {
           alert("Bitte zuerst Mobilisation Übungen generieren.");
           return;
@@ -787,6 +805,7 @@
       }
 
       function startKoordinationTimer() {
+        unlockAudioContext();
         if (currentKoordinationExercises.length === 0) {
           alert("Bitte zuerst Koordination & Aktivierung Übungen generieren.");
           return;
@@ -845,6 +864,7 @@
       }
 
       function startStrengthTimer() {
+        unlockAudioContext();
         if (currentStrengthExercises.length === 0) {
           alert("Bitte zuerst Strength & Power Übungen generieren.");
           return;
@@ -903,6 +923,7 @@
       }
 
       function startCardioTimer() {
+        unlockAudioContext();
         if (currentCardioExercises.length === 0) {
           alert("Bitte zuerst Cardio Übungen generieren.");
           return;
@@ -961,6 +982,7 @@
       }
 
       function startHIITTimer() {
+        unlockAudioContext();
         if (currentHIITExercises.length === 0) {
           alert("Bitte zuerst HIIT Übungen generieren.");
           return;
@@ -1019,6 +1041,7 @@
       }
 
       function startCooldownTimer() {
+        unlockAudioContext();
         if (currentCooldownExercises.length === 0) {
           alert("Bitte zuerst Cooldown Übungen generieren.");
           return;
