@@ -288,7 +288,7 @@
       const TIME_HIIT = 150;
       const TIME_COOLDOWN = 45;
 
-      // Hier definierst du ein Mapping, in dem du den Übungsnamen einer passenden Bild-URL zuordnest.
+      // Mapping für Übungsbilder (Ersetze oder erweitere diese Links mit deinen gewünschten Pixabay-URLs)
       const exerciseImages = {
         "Cat-Cow Stretch":
           "https://cdn.pixabay.com/photo/2017/08/06/21/45/yoga-2598283_640.jpg",
@@ -321,10 +321,8 @@
         hiitIntervalId = null,
         cooldownIntervalId = null;
 
-      // Neuer, lauterer Beep-Sound
-      const beep = new Audio(
-        "https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
-      );
+      // Neuer, lauterer Beep-Sound im MP3-Format – wird direkt durch den Timer-Button gestartet
+      const beep = new Audio("https://www.soundjay.com/button/beep-07.mp3");
 
       /* ====================================
        Hilfsfunktionen
@@ -725,7 +723,7 @@
       /* ====================================
        Timer-Funktionalität pro Kategorie
        Der Timer läuft automatisch von Übung zu Übung.
-       Während der letzten 5 Sekunden jeder Übung ertönt jede Sekunde ein lauterer Beep und der Abschnitt flackert rot.
+       Während der letzten 5 Sekunden jeder Übung ertönt jede Sekunde ein Beep und der Abschnitt flackert rot.
     ==================================== */
       function startMobilisationTimer() {
         if (currentMobilisationExercises.length === 0) {
