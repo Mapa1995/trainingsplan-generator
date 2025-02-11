@@ -614,12 +614,12 @@
       /* ====================================
          Vorbereitungs-Countdown (10 Sekunden)
          Das Overlay deckt die gesamte Kategorie ab und zeigt den Loader (neues Design) und den Countdown.
-         Der Countdown-Sound startet sofort, wenn der Start-Button gedrückt wird.
+         Der Countdown-Sound wird nur einmal gestartet – nämlich beim allerersten Start der Trainingskategorie.
          Nach Ablauf der 10 Sekunden wird der übergebene Callback aufgerufen.
       ==================================== */
       function startPreparationTimer(callback, timerDisplay) {
         let prepTime = 10;
-        // Countdown-Sound sofort starten:
+        // Countdown-Sound wird hier gestartet – für den ersten Start einer Kategorie
         countdownSound.pause();
         countdownSound.currentTime = 0;
         countdownSound.play();
@@ -733,7 +733,11 @@
           return;
         }
         const timerDisplay = document.getElementById("mobilisation-timer");
-        startPreparationTimer(beginMobilisationTimer, timerDisplay);
+        if (mobilisationIndex === 0) {
+          startPreparationTimer(beginMobilisationTimer, timerDisplay);
+        } else {
+          beginMobilisationTimer();
+        }
       }
       function beginMobilisationTimer() {
         let exercise = currentMobilisationExercises[mobilisationIndex];
@@ -787,7 +791,11 @@
           return;
         }
         const timerDisplay = document.getElementById("koordination-timer");
-        startPreparationTimer(beginKoordinationTimer, timerDisplay);
+        if (koordinationIndex === 0) {
+          startPreparationTimer(beginKoordinationTimer, timerDisplay);
+        } else {
+          beginKoordinationTimer();
+        }
       }
       function beginKoordinationTimer() {
         let exercise = currentKoordinationExercises[koordinationIndex];
@@ -853,7 +861,11 @@
           return;
         }
         const timerDisplay = document.getElementById("strength-timer");
-        startPreparationTimer(beginStrengthTimer, timerDisplay);
+        if (strengthIndex === 0) {
+          startPreparationTimer(beginStrengthTimer, timerDisplay);
+        } else {
+          beginStrengthTimer();
+        }
       }
       function beginStrengthTimer() {
         let exercise = currentStrengthExercises[strengthIndex];
@@ -907,7 +919,11 @@
           return;
         }
         const timerDisplay = document.getElementById("cardio-timer");
-        startPreparationTimer(beginCardioTimer, timerDisplay);
+        if (cardioIndex === 0) {
+          startPreparationTimer(beginCardioTimer, timerDisplay);
+        } else {
+          beginCardioTimer();
+        }
       }
       function beginCardioTimer() {
         let exercise = currentCardioExercises[cardioIndex];
@@ -961,7 +977,11 @@
           return;
         }
         const timerDisplay = document.getElementById("hiit-timer");
-        startPreparationTimer(beginHIITTimer, timerDisplay);
+        if (hiitIndex === 0) {
+          startPreparationTimer(beginHIITTimer, timerDisplay);
+        } else {
+          beginHIITTimer();
+        }
       }
       function beginHIITTimer() {
         let exercise = currentHIITExercises[hiitIndex];
@@ -1015,7 +1035,11 @@
           return;
         }
         const timerDisplay = document.getElementById("cooldown-timer");
-        startPreparationTimer(beginCooldownTimer, timerDisplay);
+        if (cooldownIndex === 0) {
+          startPreparationTimer(beginCooldownTimer, timerDisplay);
+        } else {
+          beginCooldownTimer();
+        }
       }
       function beginCooldownTimer() {
         let exercise = currentCooldownExercises[cooldownIndex];
@@ -1041,7 +1065,7 @@
         }, 1000);
       }
 
-      // Lässt den Hintergrund des angegebenen Abschnitts für 500ms rot aufblitzen.
+      // Funktion, die den Hintergrund des entsprechenden Abschnitts kurz rot aufblitzen lässt
       function flashRed(sectionId) {
         let section = document.getElementById(sectionId);
         let originalBg = section.style.backgroundColor || "#fff";
