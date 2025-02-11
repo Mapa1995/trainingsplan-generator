@@ -39,12 +39,12 @@
         font-size: 0.9rem;
         line-height: 1.5;
       }
-      /* Vergrößerter Countdown – gut sichtbar auch auf Mobilgeräten */
+      /* Timer-Display */
       .timer-display {
         margin-top: 1rem;
         font-weight: bold;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.5em;
         color: #333;
       }
       /* Übungseintrag als Flex-Container */
@@ -67,7 +67,7 @@
         border-radius: 4px;
         cursor: pointer;
       }
-      /* Button Styles – From Uiverse.io by Madflows */
+      /* Buttons */
       .button {
         position: relative;
         overflow: hidden;
@@ -95,18 +95,13 @@
         width: 100%;
         height: inherit;
         border-radius: inherit;
-        background: linear-gradient(
-          82.3deg,
-          rgba(150, 93, 233, 1) 10.8%,
-          rgba(99, 88, 238, 1) 94.3%
-        );
+        background: linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
         transition: all 0.475s;
       }
       .button-content {
         position: relative;
         z-index: 1;
       }
-      /* Timer-Button Styles – From Uiverse.io by absoluteSTrange */
       .timer-button {
         padding: 17px 40px;
         border-radius: 10px;
@@ -116,7 +111,7 @@
         font-size: 15px;
         transition: all 0.3s ease;
         box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
-        color: hsl(0, 0%, 100%);
+        color: #fff;
         cursor: pointer;
         display: inline-block;
         flex: 1;
@@ -137,7 +132,7 @@
         flex-wrap: nowrap;
         margin-top: 1rem;
       }
-      /* Modal Styles für die Bildansicht */
+      /* Modal für Bildansicht */
       .image-modal {
         position: fixed;
         top: 0;
@@ -156,83 +151,55 @@
         border: 5px solid #fff;
         border-radius: 10px;
       }
-      /* Loader & Glitch CSS – From Uiverse.io by andrew-demchenk0 */
-      .loader {
-        text-align: center;
-      }
-      .glitch {
-        position: relative;
-        font-size: 25px;
-        font-weight: 700;
-        line-height: 1.2;
-        color: #fff;
-        letter-spacing: 5px;
-        z-index: 1;
-        animation: shift 1s ease-in-out infinite alternate;
-      }
-      .glitch:before,
-      .glitch:after {
-        display: block;
-        content: attr(data-glitch);
+      /* Overlay für den Vorbereitungs-Countdown – deckt die ganze Kategorie ab */
+      .prep-overlay {
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
       }
-      .glitch:before {
-        animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        color: #8b00ff;
-        z-index: -1;
+      /* Neuer Loader (From Uiverse.io by JaydipPrajapati1910) */
+      .loader {
+        width: 160px;
+        height: 80px;
+        border: 4px solid #00F45B;
+        border-right-color: transparent;
+        padding: 6px;
+        background: repeating-linear-gradient(90deg, #00F45B 0 20px, transparent 0 30px)
+          left/0% 100% no-repeat content-box content-box;
+        position: relative;
+        animation: p5 2s infinite steps(6);
       }
-      .glitch:after {
-        animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-        color: #00e571;
-        z-index: -2;
+      .loader::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: 100%;
+        width: 20px;
+        background: linear-gradient(
+            transparent calc(50% - 14px),
+            #00F45B 0 calc(50% - 10px),
+            transparent 0 calc(50% + 10px),
+            #00F45B 0 calc(50% + 14px),
+            transparent 0
+          ) left/100% 100%,
+          linear-gradient(#00F45B calc(50% - 10px), transparent 0 calc(50% + 10px), #00F45B 0)
+            left/4px 100%,
+          linear-gradient(transparent calc(50% - 10px), #00F45B 0 calc(50% + 10px), transparent 0)
+            right/4px 100%;
+        background-repeat: no-repeat;
       }
-      @keyframes glitch {
-        0% {
-          transform: translate(0);
-        }
-        20% {
-          transform: translate(-3px, 3px);
-        }
-        40% {
-          transform: translate(-3px, -3px);
-        }
-        60% {
-          transform: translate(3px, 3px);
-        }
-        80% {
-          transform: translate(3px, -3px);
-        }
-        to {
-          transform: translate(0);
-        }
-      }
-      @keyframes shift {
-        0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
-          transform: skewX(0deg);
-        }
-        41% {
-          transform: skewX(10deg);
-        }
-        42% {
-          transform: skewX(-10deg);
-        }
-        59% {
-          transform: skewX(40deg) skewY(10deg);
-        }
-        60% {
-          transform: skewX(-40deg) skewY(-10deg);
-        }
-        63% {
-          transform: skewX(10deg) skewY(-5deg);
-        }
-        70% {
-          transform: skewX(-50deg) skewY(-20deg);
-        }
-        71% {
-          transform: skewX(10deg) skewY(-10deg);
+      @keyframes p5 {
+        100% {
+          background-size: 120% 100%;
         }
       }
     </style>
@@ -243,9 +210,7 @@
     <!-- 1. Mobilisation (5 Minuten) -->
     <div class="section" id="mobilisation">
       <h2>Mobilisation (5 Minuten)</h2>
-      <p>
-        <strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne Pause aus.
-      </p>
+      <p><strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne Pause aus.</p>
       <div class="button-container">
         <button class="button" onclick="generateMobilisation()">
           <span class="button-content">Generiere Mobilisation</span>
@@ -261,9 +226,7 @@
     <!-- 2. Koordination & Aktivierung (7 Minuten) -->
     <div class="section" id="koordination">
       <h2>Koordination & Aktivierung (7 Minuten)</h2>
-      <p>
-        <strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen und 30 Sek. Pause nach dem Block.
-      </p>
+      <p><strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen und 30 Sek. Pause nach dem Block.</p>
       <div class="button-container">
         <button class="button" onclick="generateKoordination()">
           <span class="button-content">Generiere Koordination & Aktivierung</span>
@@ -279,9 +242,7 @@
     <!-- 3. Strength & Power (15 Minuten) -->
     <div class="section" id="strength">
       <h2>Strength & Power (15 Minuten)</h2>
-      <p>
-        <strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust, Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und 60-90 Sek. Pause nach dem Block.
-      </p>
+      <p><strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust, Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und 60-90 Sek. Pause nach dem Block.</p>
       <div class="button-container">
         <button class="button" onclick="generateStrength()">
           <span class="button-content">Generiere Strength & Power</span>
@@ -297,9 +258,7 @@
     <!-- 4. Funktionelles Cardio (5 Minuten, EMOM) -->
     <div class="section" id="cardio">
       <h2>Funktionelles Cardio (5 Minuten, EMOM)</h2>
-      <p>
-        <strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den Übungen, die Zeit wird per Minute gesteuert.
-      </p>
+      <p><strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den Übungen, die Zeit wird per Minute gesteuert.</p>
       <div class="button-container">
         <button class="button" onclick="generateCardio()">
           <span class="button-content">Generiere Cardio</span>
@@ -315,9 +274,7 @@
     <!-- 5. HIIT (10 Minuten, AMRAP) -->
     <div class="section" id="hiit">
       <h2>HIIT (10 Minuten, AMRAP)</h2>
-      <p>
-        <strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek. Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.
-      </p>
+      <p><strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek. Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.</p>
       <div class="button-container">
         <button class="button" onclick="generateHIIT()">
           <span class="button-content">Generiere HIIT</span>
@@ -333,9 +290,7 @@
     <!-- 6. Cooldown & Regeneration (3 Minuten) -->
     <div class="section" id="cooldown">
       <h2>Cooldown & Regeneration (3 Minuten)</h2>
-      <p>
-        <strong>Hinweis:</strong> Führe die Dehnübungen fließend ohne Pause aus.
-      </p>
+      <p><strong>Hinweis:</strong> Führe die Dehnübungen fließend ohne Pause aus.</p>
       <div class="button-container">
         <button class="button" onclick="generateCooldown()">
           <span class="button-content">Generiere Cooldown</span>
@@ -412,7 +367,6 @@
         "Overhead Arm Reach": "https://cdn.jefit.com/assets/img/exercises/gifs/793.gif",
         "Dynamic Back Extension": "https://learnmuscles.com/wp-content/uploads/2018/03/Back-Extension-Exercise-2-Permission-Joseph-E.-Muscolino-www.learnmuscles.com_-1024x693.jpg",
         "Hip Openers": "https://ik.imagekit.io/02fmeo4exvw/fit-life/2015/10/2015-10-08-hip-2.jpg",
-
         // Koordination & Aktivierung
         "Single-Leg Balance": "https://cdn.jefit.com/assets/img/exercises/gifs/662.gif",
         "Lateral Hops": "https://www.shutterstock.com/shutterstock/photos/2316122749/display_1500/stock-vector-man-doing-side-or-lateral-shuffles-or-hops-skaters-exercise-flat-vector-illustration-isolated-on-2316122749.jpg",
@@ -442,7 +396,6 @@
         "Dynamic Knee Drive": "https://img.livestrong.com/-/media-storage/contentlab-data/5/24/03f40137b0c546bb98f16633ceaa361f.jpg",
         "Quick Step Shuffle": "https://i.ytimg.com/vi/jdHBn3Wllrg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGDkgZSg7MA8=&rs=AOn4CLB9s5PmxBxppCyABD4lhe4A3vp4Ag",
         "Cross-Over Steps": "https://www.spotebi.com/wp-content/uploads/2016/09/step-up-crossover-exercise-illustration-spotebi.jpg",
-
         // Strength & Power – Unterkörper
         "Bulgarian Split Squat (Kniedominant)": "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
         "Deadlift (Hüftdominant)": "https://hips.hearstapps.com/hmg-prod/images/deadlift-1651142430.jpg?crop=1.00xw:0.845xh;0,0.0510xh&resize=980:*",
@@ -472,7 +425,6 @@
         "Skater Squat (Unilateral)": "https://simplifaster.com/wp-content/uploads/2022/09/Skater-Squats-Header.jpg",
         "Sumo Deadlift": "https://www.kettlebellkings.com/cdn/shop/articles/kettlebell_sumo_deadlift.jpg?v=1732018260",
         "trap bar deadlifts": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-RqfI5ga21sGG1ET262IGwioSmYtUS2x_zQ&s",
-
         // Strength & Power – Oberkörper
         "Weighted Dips (Druck)": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/17551101-Weighted-Tricep-Dips_Upper-Arms_small.jpg",
         "Landmine Press (Druck)": "https://www.dmoose.com/cdn/shop/articles/1_29c9d6a3-c2ad-4ad0-af9d-eadc397b0ac0.jpg?v=1653734257",
@@ -502,7 +454,6 @@
         "Explosive Clap Push-Ups (Druck)": "https://www.inspireusafoundation.org/wp-content/uploads/2023/04/clapping-push-up-benefits-1024x576.png",
         "Single-Arm Dumbbell Row (Zug)": "https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-single-arm-bent-over-row.jpg",
         "Pendlay Rows mit Langhantel": "https://fitwill.app/api/image/3017?p=1&w=1024&h=512",
-
         // Funktionelles Cardio
         "Kettlebell Swings": "https://i.ytimg.com/vi/mKDIuUbH94Q/maxresdefault.jpg",
         "Sled Push": "https://barbend.com/wp-content/uploads/2022/03/BarBend-Article-Image-760-x-427-41.jpg",
@@ -540,7 +491,6 @@
         "Dynamic Plank": "https://i.ytimg.com/vi/ZCkNb-UsNAU/maxresdefault.jpg",
         "Plyometric Push-Ups": "https://www.reynoldsgroup.co.uk/wp-content/uploads/385.jpg",
         "Skater Bounds": "https://experiencelife.lifetime.life/wp-content/uploads/2021/02/skater-jump.jpg",
-
         // HIIT
         "Deadlift to High Pull": "https://i.ytimg.com/vi/gh55vVlwlQg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhaXyt0cOMnR7Ew66mRN6jp3nA4A",
         "Bulgarian Split Squat Jump": "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
@@ -570,7 +520,6 @@
         "Jumping Jacks": "https://www.shutterstock.com/image-vector/man-doing-jumping-jacks-home-260nw-1984566902.jpg",
         "Plank Jacks": "https://www.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.jpg",
         "Sit-Outs": "https://ik.imagekit.io/02fmeo4exvw/blogs/blog-fitnovatives-031214-7.jpg",
-
         // Cooldown & Regeneration
         "Child’s Pose": "https://i.ytimg.com/vi/qYvYsFrTI0U/maxresdefault.jpg",
         "Hip Flexor Stretch": "https://i.ytimg.com/vi/tsGPYSQbZx4/hqdefault.jpg",
@@ -625,8 +574,8 @@
       beep.preload = "auto";
       beep.load();
 
-      // Countdown-Sound (für die letzten 5 Sekunden der Vorbereitungsphase)
-      const countdownSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-countdown-2084.mp3");
+      // Countdown-Sound (lokal – Datei im Ordner "audio")
+      const countdownSound = new Audio("audio/countdown-122700.mp3");
       countdownSound.preload = "auto";
       countdownSound.load();
 
@@ -642,17 +591,11 @@
       /* ====================================
          Hilfsfunktionen
       ==================================== */
-      // Liefert 'count' zufällige, eindeutige Elemente aus einem Array
       function getRandomElements(arr, count) {
         const shuffled = arr.slice().sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
       }
 
-      /* 
-         Erzeugt HTML für einen Übungseintrag mit Text, empfohlener Zeit/Wdh. und einem Bild.
-         Falls für den Übungsnamen im Mapping ein Bild hinterlegt ist, werden diese URLs genutzt;
-         andernfalls wird ein Fallback (Platzhalter) verwendet.
-      */
       function renderExerciseItem(exerciseName, instruction) {
         let smallUrl, largeUrl;
         if (exerciseImages[exerciseName]) {
@@ -670,278 +613,97 @@
 
       /* ====================================
          Vorbereitungs-Countdown (10 Sekunden)
-         Zeigt den Loader (mit Glitch-Effekt) und zählt von 10 bis 0 herunter.
-         In den letzten 5 Sekunden wird pro Sekunde der Countdown-Sound abgespielt.
+         Das Overlay deckt die gesamte Kategorie ab und zeigt den Loader (neues Design) und den Countdown.
+         Der Countdown-Sound startet sofort, wenn der Start-Button gedrückt wird.
          Nach Ablauf der 10 Sekunden wird der übergebene Callback aufgerufen.
       ==================================== */
       function startPreparationTimer(callback, timerDisplay) {
         let prepTime = 10;
-        timerDisplay.innerHTML = `<div class="loader">
-          <div data-glitch="Loading..." class="glitch">Loading...</div>
-        </div><div style="text-align:center; font-size:2em; margin-top:10px;">${prepTime}</div>`;
+        // Countdown-Sound sofort starten:
+        countdownSound.pause();
+        countdownSound.currentTime = 0;
+        countdownSound.play();
+        
+        let section = timerDisplay.closest('.section');
+        let overlay = document.createElement('div');
+        overlay.className = "prep-overlay";
+        overlay.innerHTML = `<div class="loader"></div>
+                             <div class="prep-countdown" style="text-align:center; font-size:2em; margin-top:10px; color: #fff;">${prepTime}</div>`;
+        section.appendChild(overlay);
         let prepInterval = setInterval(function() {
           prepTime--;
-          timerDisplay.innerHTML = `<div class="loader">
-            <div data-glitch="Loading..." class="glitch">Loading...</div>
-          </div><div style="text-align:center; font-size:2em; margin-top:10px;">${prepTime}</div>`;
-          if (prepTime <= 5 && prepTime > 0) {
-            countdownSound.pause();
-            countdownSound.currentTime = 0;
-            countdownSound.play();
-          }
+          let countdownEl = overlay.querySelector('.prep-countdown');
+          countdownEl.innerHTML = prepTime;
           if (prepTime <= 0) {
             clearInterval(prepInterval);
+            section.removeChild(overlay);
             callback();
           }
         }, 1000);
       }
 
       /* ====================================
-         Übungslisten (Auswahlmöglichkeiten)
+         Übungslisten
       ==================================== */
-      // 1. Mobilisation (35 Übungen)
       const mobilisationExercises = [
-        "Cat-Cow Stretch",
-        "World's Greatest Stretch",
-        "Deep Squat with Reach",
-        "90/90 Hip Switches",
-        "Wrist Circles",
-        "Ankle Circles",
-        "Arm Circles",
-        "Hip Circles",
-        "Torso Twists",
-        "Spinal Rotations",
-        "Shoulder Shrugs",
-        "Neck Rolls",
-        "Leg Swings",
-        "Hip Flexor Mobilization",
-        "Knee Circles",
-        "Dynamic Hamstring Stretch",
-        "Lunge with Twist",
-        "Inchworms",
-        "Side Lunge Stretch",
-        "Quadruped Rocking",
-        "Child’s Pose to Cobra",
-        "Butterfly Stretch",
-        "Seated Torso Twist",
-        "Standing Forward Bend",
-        "High Lunge with Reach",
-        "Figure Four Stretch",
-        "Calf Stretch on Wall",
-        "Pigeon Stretch",
-        "Side Plank Stretch",
-        "Scapular Wall Slides",
-        "Dynamic Chest Opener",
-        "Standing Side Bend",
-        "Overhead Arm Reach",
-        "Dynamic Back Extension",
-        "Hip Openers"
+        "Cat-Cow Stretch", "World's Greatest Stretch", "Deep Squat with Reach", "90/90 Hip Switches", "Wrist Circles",
+        "Ankle Circles", "Arm Circles", "Hip Circles", "Torso Twists", "Spinal Rotations", "Shoulder Shrugs", "Neck Rolls",
+        "Leg Swings", "Hip Flexor Mobilization", "Knee Circles", "Dynamic Hamstring Stretch", "Lunge with Twist", "Inchworms",
+        "Side Lunge Stretch", "Quadruped Rocking", "Child’s Pose to Cobra", "Butterfly Stretch", "Seated Torso Twist",
+        "Standing Forward Bend", "High Lunge with Reach", "Figure Four Stretch", "Calf Stretch on Wall", "Pigeon Stretch",
+        "Side Plank Stretch", "Scapular Wall Slides", "Dynamic Chest Opener", "Standing Side Bend", "Overhead Arm Reach",
+        "Dynamic Back Extension", "Hip Openers"
       ];
-
-      // 2. Koordination & Aktivierung (28 Übungen)
       const koordinationExercises = [
-        "Single-Leg Balance",
-        "Lateral Hops",
-        "Reaction Drill",
-        "Skater Hops",
-        "Tandem Walk",
-        "Heel-to-Toe Walk",
-        "Agility Ladder Drill",
-        "Mini Hurdles",
-        "Cone Drills",
-        "Side-to-Side Jumps",
-        "Balance Beam Walk",
-        "Single-Leg Squat",
-        "Dynamic Balance on Bosu",
-        "Stability Ball Balance",
-        "Mirror Drill",
-        "Quick Feet Drill",
-        "Lateral Shuffle",
-        "Speed Skips",
-        "Zigzag Drill",
-        "Single-Leg Deadlift Balance",
-        "Clock Drill",
-        "Jumping Jacks with Balance",
-        "Balance Reach",
-        "Plyometric Lateral Bound",
-        "Rotational Balance",
-        "Dynamic Knee Drive",
-        "Quick Step Shuffle",
+        "Single-Leg Balance", "Lateral Hops", "Reaction Drill", "Skater Hops", "Tandem Walk", "Heel-to-Toe Walk",
+        "Agility Ladder Drill", "Mini Hurdles", "Cone Drills", "Side-to-Side Jumps", "Balance Beam Walk", "Single-Leg Squat",
+        "Dynamic Balance on Bosu", "Stability Ball Balance", "Mirror Drill", "Quick Feet Drill", "Lateral Shuffle",
+        "Speed Skips", "Zigzag Drill", "Single-Leg Deadlift Balance", "Clock Drill", "Jumping Jacks with Balance",
+        "Balance Reach", "Plyometric Lateral Bound", "Rotational Balance", "Dynamic Knee Drive", "Quick Step Shuffle",
         "Cross-Over Steps"
       ];
-
-      // 3. Strength & Power – Unterkörper (28 Übungen)
       const strengthUnderExercises = [
-        "Bulgarian Split Squat (Kniedominant)",
-        "Deadlift (Hüftdominant)",
-        "Squat (Kombination)",
-        "Lunges (Unilateral)",
-        "Step-Ups (Explosiv)",
-        "Hip Thrust (Hüftdominant)",
-        "Goblet Squat",
-        "Pistol Squat (Unilateral)",
-        "Box Squat",
-        "Sumo Squat",
-        "Single-Leg Romanian Deadlift (Hüftdominant)",
-        "Curtsy Lunge (Unilateral)",
-        "Lateral Lunge (Kniedominant)",
-        "Front Squat",
-        "Reverse Lunge",
-        "Split Jump Squat",
-        "Jumping Lunges (Explosiv)",
-        "Glute Bridge",
-        "Kniegestützte Donkey Kicks",
-        "Kettlebell Swing (Hüftdominant)",
-        "Banded Reverse Walking",
-        "Sled Drag",
-        "Weighted Step-Down",
-        "Single-Leg Box Squat",
-        "Explosive Split Squat",
-        "Skater Squat (Unilateral)",
-        "Sumo Deadlift",
-        "trap bar deadlifts"
+        "Bulgarian Split Squat (Kniedominant)", "Deadlift (Hüftdominant)", "Squat (Kombination)", "Lunges (Unilateral)",
+        "Step-Ups (Explosiv)", "Hip Thrust (Hüftdominant)", "Goblet Squat", "Pistol Squat (Unilateral)", "Box Squat",
+        "Sumo Squat", "Single-Leg Romanian Deadlift (Hüftdominant)", "Curtsy Lunge (Unilateral)", "Lateral Lunge (Kniedominant)",
+        "Front Squat", "Reverse Lunge", "Split Jump Squat", "Jumping Lunges (Explosiv)", "Glute Bridge", "Kniegestützte Donkey Kicks",
+        "Kettlebell Swing (Hüftdominant)", "Banded Reverse Walking", "Sled Drag", "Weighted Step-Down", "Single-Leg Box Squat",
+        "Explosive Split Squat", "Skater Squat (Unilateral)", "Sumo Deadlift", "trap bar deadlifts"
       ];
-
-      // 3. Strength & Power – Oberkörper (28 Übungen)
       const strengthOberExercises = [
-        "Weighted Dips (Druck)",
-        "Landmine Press (Druck)",
-        "Explosive Med Ball Chest Pass (Druck)",
-        "Plyo Push-Up (Druck)",
-        "Weighted Pull-Up (Zug)",
-        "TRX Row (Zug)",
-        "Seal Row (Zug)",
-        "Inverted Row (Zug)",
-        "meadows row",
-        "landmine press",
-        "Incline Push-Up (Druck)",
-        "Decline Push-Up (Druck)",
-        "Single-Arm Landmine Row (Zug, Unilateral)",
-        "Bent-Over Row (Zug)",
-        "Medicine Ball Slams (Druck)",
-        "Landmine Rotation (Rotations)",
-        "Bodyweight Archer Push-Ups",
-        "Dumbbell Pullover (Zug)",
-        "Push-Up with Rotation (Druck, Rotations)",
-        "TRX Chest Press",
-        "Svend Press (Druck)",
-        "Kettlebell Floor Press (Druck)",
-        "Stability Ball Dumbbell Press",
-        "Reverse Fly (Zug)",
-        "Renegade Row (Zug, Unilateral)",
-        "Explosive Clap Push-Ups (Druck)",
-        "Single-Arm Dumbbell Row (Zug)",
-        "Pendlay Rows mit Langhantel"
+        "Weighted Dips (Druck)", "Landmine Press (Druck)", "Explosive Med Ball Chest Pass (Druck)", "Plyo Push-Up (Druck)",
+        "Weighted Pull-Up (Zug)", "TRX Row (Zug)", "Seal Row (Zug)", "Inverted Row (Zug)", "meadows row", "landmine press",
+        "Incline Push-Up (Druck)", "Decline Push-Up (Druck)", "Single-Arm Landmine Row (Zug, Unilateral)", "Bent-Over Row (Zug)",
+        "Medicine Ball Slams (Druck)", "Landmine Rotation (Rotations)", "Bodyweight Archer Push-Ups", "Dumbbell Pullover (Zug)",
+        "Push-Up with Rotation (Druck, Rotations)", "TRX Chest Press", "Svend Press (Druck)", "Kettlebell Floor Press (Druck)",
+        "Stability Ball Dumbbell Press", "Reverse Fly (Zug)", "Renegade Row (Zug, Unilateral)", "Explosive Clap Push-Ups (Druck)",
+        "Single-Arm Dumbbell Row (Zug)", "Pendlay Rows mit Langhantel"
       ];
-
-      // 4. Funktionelles Cardio (35 Übungen)
       const cardioExercises = [
-        "Kettlebell Swings",
-        "Sled Push",
-        "Farmer Walk",
-        "Box Jump Overs",
-        "Explosive Step-Ups",
-        "Burpees to Jump Touch",
-        "Rope Slams",
-        "Battle Ropes",
-        "Jumping Jacks",
-        "Mountain Climbers",
-        "High Knees",
-        "Butt Kickers",
-        "Skaters",
-        "Lateral Shuffle",
-        "Speed Skips",
-        "Tuck Jumps",
-        "Lunge Jumps",
-        "Plank Jacks",
-        "Squat Thrusts",
-        "Bear Crawls",
-        "Inch Worms",
-        "Side-to-Side Hops",
-        "Jump Rope",
-        "Reverse Lunges",
-        "Quick Feet Drill",
-        "Shadow Boxing",
-        "Sprint in Place",
-        "Star Jumps",
-        "Lateral Box Jumps",
-        "Medicine Ball Slams",
-        "Agility Ladder Drill",
-        "Burpee Broad Jumps",
-        "Step-Ups with Knee Drive",
-        "Dynamic Plank",
-        "Plyometric Push-Ups",
-        "Skater Bounds"
+        "Kettlebell Swings", "Sled Push", "Farmer Walk", "Box Jump Overs", "Explosive Step-Ups", "Burpees to Jump Touch",
+        "Rope Slams", "Battle Ropes", "Jumping Jacks", "Mountain Climbers", "High Knees", "Butt Kickers", "Skaters",
+        "Lateral Shuffle", "Speed Skips", "Tuck Jumps", "Lunge Jumps", "Plank Jacks", "Squat Thrusts", "Bear Crawls",
+        "Inch Worms", "Side-to-Side Hops", "Jump Rope", "Reverse Lunges", "Quick Feet Drill", "Shadow Boxing",
+        "Sprint in Place", "Star Jumps", "Lateral Box Jumps", "Medicine Ball Slams", "Agility Ladder Drill",
+        "Burpee Broad Jumps", "Step-Ups with Knee Drive", "Dynamic Plank", "Plyometric Push-Ups", "Skater Bounds"
       ];
-
-      // 5. HIIT (28 Übungen)
       const hiitExercises = [
-        "Deadlift to High Pull",
-        "Bulgarian Split Squat Jump",
-        "Explosive TRX Row",
-        "Med Ball Rotational Throw",
-        "Unilateral Overhead Lunge",
-        "Kettlebell Swings",
-        "Box Jumps",
-        "Plyo Push-Ups",
-        "Russian Twists",
-        "Mountain Climbers",
-        "Plank to Push-Up",
-        "Squat Jumps",
-        "Lunge Jumps",
-        "Jumping Lunges",
-        "Tuck Jumps",
-        "Skater Jumps",
-        "Lateral Bound",
-        "High Knees",
-        "Butt Kickers",
-        "Spider-Man Push-Ups",
-        "Alternating Side Lunges",
-        "Single-Leg Hops",
-        "Explosive Step-Ups",
-        "Reverse Lunge to Knee Drive",
-        "Burpees",
-        "Jumping Jacks",
-        "Plank Jacks",
-        "Sit-Outs"
+        "Deadlift to High Pull", "Bulgarian Split Squat Jump", "Explosive TRX Row", "Med Ball Rotational Throw",
+        "Unilateral Overhead Lunge", "Kettlebell Swings", "Box Jumps", "Plyo Push-Ups", "Russian Twists", "Mountain Climbers",
+        "Plank to Push-Up", "Squat Jumps", "Lunge Jumps", "Jumping Lunges", "Tuck Jumps", "Skater Jumps", "Lateral Bound",
+        "High Knees", "Butt Kickers", "Spider-Man Push-Ups", "Alternating Side Lunges", "Single-Leg Hops", "Explosive Step-Ups",
+        "Reverse Lunge to Knee Drive", "Burpees", "Jumping Jacks", "Plank Jacks", "Sit-Outs"
       ];
-
-      // 6. Cooldown & Regeneration (28 Übungen)
       const cooldownExercises = [
-        "Child’s Pose",
-        "Hip Flexor Stretch",
-        "Seated Forward Fold",
-        "Thoracic Rotation Stretch",
-        "Standing Quad Stretch",
-        "Calf Stretch",
-        "Butterfly Stretch",
-        "Chest Stretch",
-        "Shoulder Stretch",
-        "Triceps Stretch",
-        "Side Bend Stretch",
-        "Lying Spinal Twist",
-        "Pigeon Pose",
-        "Figure Four Stretch",
-        "Overhead Stretch",
-        "Hamstring Stretch",
-        "Cat-Cow Stretch",
-        "Dynamic Chest Opener",
-        "Cobra Pose",
-        "Seated Torso Twist",
-        "Neck Stretch",
-        "Wrist Stretch",
-        "Ankle Stretch",
-        "Side Plank Stretch",
-        "Lower Back Stretch",
-        "Quadriceps Stretch",
-        "Banded Shoulder Stretch",
-        "Dynamic Hip Opener"
+        "Child’s Pose", "Hip Flexor Stretch", "Seated Forward Fold", "Thoracic Rotation Stretch", "Standing Quad Stretch",
+        "Calf Stretch", "Butterfly Stretch", "Chest Stretch", "Shoulder Stretch", "Triceps Stretch", "Side Bend Stretch",
+        "Lying Spinal Twist", "Pigeon Pose", "Figure Four Stretch", "Overhead Stretch", "Hamstring Stretch", "Cat-Cow Stretch",
+        "Dynamic Chest Opener", "Cobra Pose", "Seated Torso Twist", "Neck Stretch", "Wrist Stretch", "Ankle Stretch",
+        "Side Plank Stretch", "Lower Back Stretch", "Quadriceps Stretch", "Banded Shoulder Stretch", "Dynamic Hip Opener"
       ];
 
       /* ====================================
          Generationsfunktionen pro Kategorie
-         (Bei jedem Klick wird ein eventuell laufender Timer abgebrochen,
-         der jeweilige Index zurückgesetzt und die Timeranzeige geleert.)
       ==================================== */
       // --- Mobilisation ---
       function generateMobilisation() {
@@ -954,10 +716,7 @@
         currentMobilisationExercises = [];
         let html = `<strong>Mobilisation (5 Minuten):</strong>`;
         selected.forEach((ex) => {
-          currentMobilisationExercises.push({
-            name: ex,
-            instruction: "60 Sek.",
-          });
+          currentMobilisationExercises.push({ name: ex, instruction: "60 Sek." });
           html += renderExerciseItem(ex, "60 Sek.");
         });
         document.getElementById("mobilisation-exercises").innerHTML = html;
@@ -970,8 +729,7 @@
           return;
         }
         if (mobilisationIndex >= currentMobilisationExercises.length) {
-          document.getElementById("mobilisation-timer").innerHTML =
-            "Alle Mobilisation Übungen sind abgeschlossen.";
+          document.getElementById("mobilisation-timer").innerHTML = "Alle Mobilisation Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("mobilisation-timer");
@@ -981,32 +739,10 @@
         let exercise = currentMobilisationExercises[mobilisationIndex];
         let timeLeft = TIME_MOBILISATION;
         const timerDisplay = document.getElementById("mobilisation-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (mobilisationIndex + 1) +
-          "/" +
-          currentMobilisationExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + "/" + currentMobilisationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         mobilisationIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (mobilisationIndex + 1) +
-            "/" +
-            currentMobilisationExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + "/" + currentMobilisationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1016,8 +752,7 @@
           if (timeLeft <= 0) {
             clearInterval(mobilisationIntervalId);
             mobilisationIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
             mobilisationIndex++;
             setTimeout(startMobilisationTimer, 1000);
           }
@@ -1035,10 +770,7 @@
         currentKoordinationExercises = [];
         let html = `<strong>Koordination & Aktivierung (7 Minuten):</strong>`;
         selected.forEach((ex) => {
-          currentKoordinationExercises.push({
-            name: ex,
-            instruction: "105 Sek.",
-          });
+          currentKoordinationExercises.push({ name: ex, instruction: "105 Sek." });
           html += renderExerciseItem(ex, "105 Sek.");
         });
         document.getElementById("koordination-exercises").innerHTML = html;
@@ -1051,8 +783,7 @@
           return;
         }
         if (koordinationIndex >= currentKoordinationExercises.length) {
-          document.getElementById("koordination-timer").innerHTML =
-            "Alle Koordination & Aktivierung Übungen sind abgeschlossen.";
+          document.getElementById("koordination-timer").innerHTML = "Alle Koordination & Aktivierung Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("koordination-timer");
@@ -1062,32 +793,10 @@
         let exercise = currentKoordinationExercises[koordinationIndex];
         let timeLeft = TIME_KOORDINATION;
         const timerDisplay = document.getElementById("koordination-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (koordinationIndex + 1) +
-          "/" +
-          currentKoordinationExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + "/" + currentKoordinationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         koordinationIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (koordinationIndex + 1) +
-            "/" +
-            currentKoordinationExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + "/" + currentKoordinationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1097,8 +806,7 @@
           if (timeLeft <= 0) {
             clearInterval(koordinationIntervalId);
             koordinationIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (koordinationIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + " abgeschlossen.";
             koordinationIndex++;
             setTimeout(startKoordinationTimer, 1000);
           }
@@ -1141,8 +849,7 @@
           return;
         }
         if (strengthIndex >= currentStrengthExercises.length) {
-          document.getElementById("strength-timer").innerHTML =
-            "Alle Strength & Power Übungen sind abgeschlossen.";
+          document.getElementById("strength-timer").innerHTML = "Alle Strength & Power Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("strength-timer");
@@ -1152,32 +859,10 @@
         let exercise = currentStrengthExercises[strengthIndex];
         let timeLeft = TIME_STRENGTH;
         const timerDisplay = document.getElementById("strength-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (strengthIndex + 1) +
-          "/" +
-          currentStrengthExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + "/" + currentStrengthExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         strengthIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (strengthIndex + 1) +
-            "/" +
-            currentStrengthExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + "/" + currentStrengthExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1187,8 +872,7 @@
           if (timeLeft <= 0) {
             clearInterval(strengthIntervalId);
             strengthIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (strengthIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + " abgeschlossen.";
             strengthIndex++;
             setTimeout(startStrengthTimer, 1000);
           }
@@ -1219,8 +903,7 @@
           return;
         }
         if (cardioIndex >= currentCardioExercises.length) {
-          document.getElementById("cardio-timer").innerHTML =
-            "Alle Cardio Übungen sind abgeschlossen.";
+          document.getElementById("cardio-timer").innerHTML = "Alle Cardio Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("cardio-timer");
@@ -1230,32 +913,10 @@
         let exercise = currentCardioExercises[cardioIndex];
         let timeLeft = TIME_CARDIO;
         const timerDisplay = document.getElementById("cardio-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (cardioIndex + 1) +
-          "/" +
-          currentCardioExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + "/" + currentCardioExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         cardioIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (cardioIndex + 1) +
-            "/" +
-            currentCardioExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + "/" + currentCardioExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1265,8 +926,7 @@
           if (timeLeft <= 0) {
             clearInterval(cardioIntervalId);
             cardioIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (cardioIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + " abgeschlossen.";
             cardioIndex++;
             setTimeout(startCardioTimer, 1000);
           }
@@ -1297,8 +957,7 @@
           return;
         }
         if (hiitIndex >= currentHIITExercises.length) {
-          document.getElementById("hiit-timer").innerHTML =
-            "Alle HIIT Übungen sind abgeschlossen.";
+          document.getElementById("hiit-timer").innerHTML = "Alle HIIT Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("hiit-timer");
@@ -1308,32 +967,10 @@
         let exercise = currentHIITExercises[hiitIndex];
         let timeLeft = TIME_HIIT;
         const timerDisplay = document.getElementById("hiit-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (hiitIndex + 1) +
-          "/" +
-          currentHIITExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + "/" + currentHIITExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         hiitIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (hiitIndex + 1) +
-            "/" +
-            currentHIITExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + "/" + currentHIITExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1343,8 +980,7 @@
           if (timeLeft <= 0) {
             clearInterval(hiitIntervalId);
             hiitIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (hiitIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + " abgeschlossen.";
             hiitIndex++;
             setTimeout(startHIITTimer, 1000);
           }
@@ -1375,8 +1011,7 @@
           return;
         }
         if (cooldownIndex >= currentCooldownExercises.length) {
-          document.getElementById("cooldown-timer").innerHTML =
-            "Alle Cooldown Übungen sind abgeschlossen.";
+          document.getElementById("cooldown-timer").innerHTML = "Alle Cooldown Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("cooldown-timer");
@@ -1386,32 +1021,10 @@
         let exercise = currentCooldownExercises[cooldownIndex];
         let timeLeft = TIME_COOLDOWN;
         const timerDisplay = document.getElementById("cooldown-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (cooldownIndex + 1) +
-          "/" +
-          currentCooldownExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
+        timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + "/" + currentCooldownExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
         cooldownIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (cooldownIndex + 1) +
-            "/" +
-            currentCooldownExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
+          timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + "/" + currentCooldownExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1421,8 +1034,7 @@
           if (timeLeft <= 0) {
             clearInterval(cooldownIntervalId);
             cooldownIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (cooldownIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + " abgeschlossen.";
             cooldownIndex++;
             setTimeout(startCooldownTimer, 1000);
           }
