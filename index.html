@@ -2,10 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trainingsplan Generator</title>
     <style>
       /* Global Styles */
@@ -133,7 +130,7 @@
         transform: translateY(5px);
         transition: 200ms;
       }
-      /* Container für Buttons – sorgt für immer nebeneinander liegende Buttons (auch mobil) */
+      /* Container für Buttons – immer nebeneinander (auch mobil) */
       .button-container {
         display: flex;
         gap: 1rem;
@@ -159,6 +156,85 @@
         border: 5px solid #fff;
         border-radius: 10px;
       }
+      /* Loader & Glitch CSS – From Uiverse.io by andrew-demchenk0 */
+      .loader {
+        text-align: center;
+      }
+      .glitch {
+        position: relative;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+        letter-spacing: 5px;
+        z-index: 1;
+        animation: shift 1s ease-in-out infinite alternate;
+      }
+      .glitch:before,
+      .glitch:after {
+        display: block;
+        content: attr(data-glitch);
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.8;
+      }
+      .glitch:before {
+        animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        color: #8b00ff;
+        z-index: -1;
+      }
+      .glitch:after {
+        animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+        color: #00e571;
+        z-index: -2;
+      }
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-3px, 3px);
+        }
+        40% {
+          transform: translate(-3px, -3px);
+        }
+        60% {
+          transform: translate(3px, 3px);
+        }
+        80% {
+          transform: translate(3px, -3px);
+        }
+        to {
+          transform: translate(0);
+        }
+      }
+      @keyframes shift {
+        0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+          transform: skewX(0deg);
+        }
+        41% {
+          transform: skewX(10deg);
+        }
+        42% {
+          transform: skewX(-10deg);
+        }
+        59% {
+          transform: skewX(40deg) skewY(10deg);
+        }
+        60% {
+          transform: skewX(-40deg) skewY(-10deg);
+        }
+        63% {
+          transform: skewX(10deg) skewY(-5deg);
+        }
+        70% {
+          transform: skewX(-50deg) skewY(-20deg);
+        }
+        71% {
+          transform: skewX(10deg) skewY(-10deg);
+        }
+      }
     </style>
   </head>
   <body>
@@ -168,8 +244,7 @@
     <div class="section" id="mobilisation">
       <h2>Mobilisation (5 Minuten)</h2>
       <p>
-        <strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne
-        Pause aus.
+        <strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne Pause aus.
       </p>
       <div class="button-container">
         <button class="button" onclick="generateMobilisation()">
@@ -187,8 +262,7 @@
     <div class="section" id="koordination">
       <h2>Koordination & Aktivierung (7 Minuten)</h2>
       <p>
-        <strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen
-        und 30 Sek. Pause nach dem Block.
+        <strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen und 30 Sek. Pause nach dem Block.
       </p>
       <div class="button-container">
         <button class="button" onclick="generateKoordination()">
@@ -206,9 +280,7 @@
     <div class="section" id="strength">
       <h2>Strength & Power (15 Minuten)</h2>
       <p>
-        <strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust,
-        Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und
-        60-90 Sek. Pause nach dem Block.
+        <strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust, Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und 60-90 Sek. Pause nach dem Block.
       </p>
       <div class="button-container">
         <button class="button" onclick="generateStrength()">
@@ -226,8 +298,7 @@
     <div class="section" id="cardio">
       <h2>Funktionelles Cardio (5 Minuten, EMOM)</h2>
       <p>
-        <strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den
-        Übungen, die Zeit wird per Minute gesteuert.
+        <strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den Übungen, die Zeit wird per Minute gesteuert.
       </p>
       <div class="button-container">
         <button class="button" onclick="generateCardio()">
@@ -245,8 +316,7 @@
     <div class="section" id="hiit">
       <h2>HIIT (10 Minuten, AMRAP)</h2>
       <p>
-        <strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek.
-        Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.
+        <strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek. Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.
       </p>
       <div class="button-container">
         <button class="button" onclick="generateHIIT()">
@@ -279,12 +349,7 @@
     </div>
 
     <!-- Modal für große Bildansicht -->
-    <div
-      id="image-modal"
-      class="image-modal"
-      style="display: none"
-      onclick="closeImageModal()"
-    >
+    <div id="image-modal" class="image-modal" style="display: none" onclick="closeImageModal()">
       <img id="modal-img" src="" alt="Großansicht" />
     </div>
 
@@ -543,34 +608,34 @@
 
       // Globale Index-Zähler & Intervalle pro Kategorie
       let mobilisationIndex = 0,
-        koordinationIndex = 0,
-        strengthIndex = 0,
-        cardioIndex = 0,
-        hiitIndex = 0,
-        cooldownIndex = 0;
+          koordinationIndex = 0,
+          strengthIndex = 0,
+          cardioIndex = 0,
+          hiitIndex = 0,
+          cooldownIndex = 0;
       let mobilisationIntervalId = null,
-        koordinationIntervalId = null,
-        strengthIntervalId = null,
-        cardioIntervalId = null,
-        hiitIntervalId = null,
-        cooldownIntervalId = null;
+          koordinationIntervalId = null,
+          strengthIntervalId = null,
+          cardioIntervalId = null,
+          hiitIntervalId = null,
+          cooldownIntervalId = null;
 
-      // Beep-Sound, der nun über den Link https://www.myinstants.com/media/sounds/beep.mp3 geladen wird.
+      // Beep-Sound (wie bisher)
       const beep = new Audio("https://www.myinstants.com/media/sounds/beep.mp3");
       beep.preload = "auto";
       beep.load();
 
+      // Countdown-Sound (für die letzten 5 Sekunden der Vorbereitungsphase)
+      const countdownSound = new Audio("https://assets.mixkit.co/sfx/preview/mixkit-countdown-2084.mp3");
+      countdownSound.preload = "auto";
+      countdownSound.load();
+
       // Funktion zum "Unlocken" des Audio-Kontextes (wichtig für iOS)
       function unlockAudioContext() {
         if (beep.paused) {
-          beep
-            .play()
-            .then(() => {
-              beep.pause();
-            })
-            .catch((error) => {
-              console.error("Audio Unlock Error:", error);
-            });
+          beep.play().then(() => { beep.pause(); }).catch((error) => {
+            console.error("Audio Unlock Error:", error);
+          });
         }
       }
 
@@ -601,6 +666,34 @@
                   <div class="exercise-text">${exerciseName} - ${instruction}</div>
                   <img src="${smallUrl}" alt="${exerciseName}" class="exercise-image" onclick="openImageModal('${largeUrl}')" />
                 </div>`;
+      }
+
+      /* ====================================
+         Vorbereitungs-Countdown (10 Sekunden)
+         Zeigt den Loader (mit Glitch-Effekt) und zählt von 10 bis 0 herunter.
+         In den letzten 5 Sekunden wird pro Sekunde der Countdown-Sound abgespielt.
+         Nach Ablauf der 10 Sekunden wird der übergebene Callback aufgerufen.
+      ==================================== */
+      function startPreparationTimer(callback, timerDisplay) {
+        let prepTime = 10;
+        timerDisplay.innerHTML = `<div class="loader">
+          <div data-glitch="Loading..." class="glitch">Loading...</div>
+        </div><div style="text-align:center; font-size:2em; margin-top:10px;">${prepTime}</div>`;
+        let prepInterval = setInterval(function() {
+          prepTime--;
+          timerDisplay.innerHTML = `<div class="loader">
+            <div data-glitch="Loading..." class="glitch">Loading...</div>
+          </div><div style="text-align:center; font-size:2em; margin-top:10px;">${prepTime}</div>`;
+          if (prepTime <= 5 && prepTime > 0) {
+            countdownSound.pause();
+            countdownSound.currentTime = 0;
+            countdownSound.play();
+          }
+          if (prepTime <= 0) {
+            clearInterval(prepInterval);
+            callback();
+          }
+        }, 1000);
       }
 
       /* ====================================
@@ -850,6 +943,7 @@
          (Bei jedem Klick wird ein eventuell laufender Timer abgebrochen,
          der jeweilige Index zurückgesetzt und die Timeranzeige geleert.)
       ==================================== */
+      // --- Mobilisation ---
       function generateMobilisation() {
         if (mobilisationIntervalId) {
           clearInterval(mobilisationIntervalId);
@@ -869,7 +963,68 @@
         document.getElementById("mobilisation-exercises").innerHTML = html;
         document.getElementById("mobilisation-timer").innerHTML = "";
       }
+      function startMobilisationTimer() {
+        unlockAudioContext();
+        if (currentMobilisationExercises.length === 0) {
+          alert("Bitte zuerst Mobilisation Übungen generieren.");
+          return;
+        }
+        if (mobilisationIndex >= currentMobilisationExercises.length) {
+          document.getElementById("mobilisation-timer").innerHTML =
+            "Alle Mobilisation Übungen sind abgeschlossen.";
+          return;
+        }
+        const timerDisplay = document.getElementById("mobilisation-timer");
+        startPreparationTimer(beginMobilisationTimer, timerDisplay);
+      }
+      function beginMobilisationTimer() {
+        let exercise = currentMobilisationExercises[mobilisationIndex];
+        let timeLeft = TIME_MOBILISATION;
+        const timerDisplay = document.getElementById("mobilisation-timer");
+        timerDisplay.innerHTML =
+          "Übung " +
+          (mobilisationIndex + 1) +
+          "/" +
+          currentMobilisationExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
+        mobilisationIntervalId = setInterval(function () {
+          timeLeft--;
+          timerDisplay.innerHTML =
+            "Übung " +
+            (mobilisationIndex + 1) +
+            "/" +
+            currentMobilisationExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
+          if (timeLeft <= 5 && timeLeft > 0) {
+            beep.pause();
+            beep.currentTime = 0;
+            beep.play();
+            flashRed("mobilisation");
+          }
+          if (timeLeft <= 0) {
+            clearInterval(mobilisationIntervalId);
+            mobilisationIntervalId = null;
+            timerDisplay.innerHTML =
+              "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
+            mobilisationIndex++;
+            setTimeout(startMobilisationTimer, 1000);
+          }
+        }, 1000);
+      }
 
+      // --- Koordination & Aktivierung ---
       function generateKoordination() {
         if (koordinationIntervalId) {
           clearInterval(koordinationIntervalId);
@@ -889,155 +1044,6 @@
         document.getElementById("koordination-exercises").innerHTML = html;
         document.getElementById("koordination-timer").innerHTML = "";
       }
-
-      function generateStrength() {
-        if (strengthIntervalId) {
-          clearInterval(strengthIntervalId);
-          strengthIntervalId = null;
-        }
-        strengthIndex = 0;
-        const underSelected = getRandomElements(strengthUnderExercises, 4);
-        const underInstructions = ["5x5", "3x5 pro Seite", "3x5", "3x10m"];
-        const oberSelected = getRandomElements(strengthOberExercises, 4);
-        const oberInstructions = ["4x6", "3x8", "3x6", "4x6"];
-        currentStrengthExercises = [];
-        let html = `<strong>Strength & Power (15 Minuten):</strong><br>
-                  <em>French Contrast Methode mit Fokus auf Brust, Rücken und Beine</em><br><br>`;
-        html += `<div style="font-size:1.2em; font-weight:bold;">Unterkörper (Hüft- & Kniedominant, explosiv & stabilisierend):</div>`;
-        underSelected.forEach((ex, i) => {
-          let instr = underInstructions[i] || "";
-          currentStrengthExercises.push({ name: ex, instruction: instr });
-          html += renderExerciseItem(ex, instr);
-        });
-        html += `<br><div style="font-size:1.2em; font-weight:bold;">Oberkörper (Brust & Rücken, inkl. Zug, Druck, Rotations & unilateraler Übungen):</div>`;
-        oberSelected.forEach((ex, i) => {
-          let instr = oberInstructions[i] || "";
-          currentStrengthExercises.push({ name: ex, instruction: instr });
-          html += renderExerciseItem(ex, instr);
-        });
-        document.getElementById("strength-exercises").innerHTML = html;
-        document.getElementById("strength-timer").innerHTML = "";
-      }
-
-      function generateCardio() {
-        if (cardioIntervalId) {
-          clearInterval(cardioIntervalId);
-          cardioIntervalId = null;
-        }
-        cardioIndex = 0;
-        const selected = getRandomElements(cardioExercises, 5);
-        currentCardioExercises = [];
-        let html = `<strong>Funktionelles Cardio (5 Minuten, EMOM):</strong>`;
-        selected.forEach((ex) => {
-          currentCardioExercises.push({ name: ex, instruction: "60 Sek." });
-          html += renderExerciseItem(ex, "60 Sek.");
-        });
-        document.getElementById("cardio-exercises").innerHTML = html;
-        document.getElementById("cardio-timer").innerHTML = "";
-      }
-
-      function generateHIIT() {
-        if (hiitIntervalId) {
-          clearInterval(hiitIntervalId);
-          hiitIntervalId = null;
-        }
-        hiitIndex = 0;
-        const selected = getRandomElements(hiitExercises, 4);
-        currentHIITExercises = [];
-        let html = `<strong>HIIT (10 Minuten, AMRAP):</strong>`;
-        selected.forEach((ex) => {
-          currentHIITExercises.push({ name: ex, instruction: "150 Sek." });
-          html += renderExerciseItem(ex, "150 Sek.");
-        });
-        document.getElementById("hiit-exercises").innerHTML = html;
-        document.getElementById("hiit-timer").innerHTML = "";
-      }
-
-      function generateCooldown() {
-        if (cooldownIntervalId) {
-          clearInterval(cooldownIntervalId);
-          cooldownIntervalId = null;
-        }
-        cooldownIndex = 0;
-        const selected = getRandomElements(cooldownExercises, 4);
-        currentCooldownExercises = [];
-        let html = `<strong>Cooldown & Regeneration (3 Minuten):</strong>`;
-        selected.forEach((ex) => {
-          currentCooldownExercises.push({ name: ex, instruction: "45 Sek." });
-          html += renderExerciseItem(ex, "45 Sek.");
-        });
-        document.getElementById("cooldown-exercises").innerHTML = html;
-        document.getElementById("cooldown-timer").innerHTML = "";
-      }
-
-      /* ====================================
-         Timer-Funktionalität pro Kategorie
-         Der Timer läuft automatisch von Übung zu Übung.
-         Während der letzten 5 Sekunden jeder Übung wird in jeder Sekunde der Beep-Sound abgespielt und der Abschnitt flackert rot.
-      ==================================== */
-      function startMobilisationTimer() {
-        // Unlock Audio-Kontext (wichtig für iOS)
-        unlockAudioContext();
-        if (currentMobilisationExercises.length === 0) {
-          alert("Bitte zuerst Mobilisation Übungen generieren.");
-          return;
-        }
-        if (mobilisationIndex >= currentMobilisationExercises.length) {
-          document.getElementById("mobilisation-timer").innerHTML =
-            "Alle Mobilisation Übungen sind abgeschlossen.";
-          return;
-        }
-        if (mobilisationIntervalId) {
-          clearInterval(mobilisationIntervalId);
-        }
-        let exercise = currentMobilisationExercises[mobilisationIndex];
-        let timeLeft = TIME_MOBILISATION;
-        let timerDisplay = document.getElementById("mobilisation-timer");
-        timerDisplay.innerHTML =
-          "Übung " +
-          (mobilisationIndex + 1) +
-          "/" +
-          currentMobilisationExercises.length +
-          ": " +
-          exercise.name +
-          " (" +
-          exercise.instruction +
-          ") - " +
-          timeLeft +
-          " Sek.";
-
-        mobilisationIntervalId = setInterval(function () {
-          timeLeft--;
-          timerDisplay.innerHTML =
-            "Übung " +
-            (mobilisationIndex + 1) +
-            "/" +
-            currentMobilisationExercises.length +
-            ": " +
-            exercise.name +
-            " (" +
-            exercise.instruction +
-            ") - " +
-            timeLeft +
-            " Sek.";
-          if (timeLeft <= 5 && timeLeft > 0) {
-            // Zurücksetzen und erneut abspielen, damit der Sound in jeder Sekunde abgespielt wird
-            beep.pause();
-            beep.currentTime = 0;
-            beep.play();
-            flashRed("mobilisation");
-          }
-          if (timeLeft <= 0) {
-            clearInterval(mobilisationIntervalId);
-            mobilisationIntervalId = null;
-            timerDisplay.innerHTML =
-              "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
-            mobilisationIndex++;
-            setTimeout(startMobilisationTimer, 1000);
-          }
-        }, 1000);
-      }
-
       function startKoordinationTimer() {
         unlockAudioContext();
         if (currentKoordinationExercises.length === 0) {
@@ -1049,12 +1055,13 @@
             "Alle Koordination & Aktivierung Übungen sind abgeschlossen.";
           return;
         }
-        if (koordinationIntervalId) {
-          clearInterval(koordinationIntervalId);
-        }
+        const timerDisplay = document.getElementById("koordination-timer");
+        startPreparationTimer(beginKoordinationTimer, timerDisplay);
+      }
+      function beginKoordinationTimer() {
         let exercise = currentKoordinationExercises[koordinationIndex];
         let timeLeft = TIME_KOORDINATION;
-        let timerDisplay = document.getElementById("koordination-timer");
+        const timerDisplay = document.getElementById("koordination-timer");
         timerDisplay.innerHTML =
           "Übung " +
           (koordinationIndex + 1) +
@@ -1067,7 +1074,6 @@
           ") - " +
           timeLeft +
           " Sek.";
-
         koordinationIntervalId = setInterval(function () {
           timeLeft--;
           timerDisplay.innerHTML =
@@ -1099,6 +1105,35 @@
         }, 1000);
       }
 
+      // --- Strength & Power ---
+      function generateStrength() {
+        if (strengthIntervalId) {
+          clearInterval(strengthIntervalId);
+          strengthIntervalId = null;
+        }
+        strengthIndex = 0;
+        const underSelected = getRandomElements(strengthUnderExercises, 4);
+        const underInstructions = ["5x5", "3x5 pro Seite", "3x5", "3x10m"];
+        const oberSelected = getRandomElements(strengthOberExercises, 4);
+        const oberInstructions = ["4x6", "3x8", "3x6", "4x6"];
+        currentStrengthExercises = [];
+        let html = `<strong>Strength & Power (15 Minuten):</strong><br>
+          <em>French Contrast Methode mit Fokus auf Brust, Rücken und Beine</em><br><br>`;
+        html += `<div style="font-size:1.2em; font-weight:bold;">Unterkörper (Hüft- & Kniedominant, explosiv & stabilisierend):</div>`;
+        underSelected.forEach((ex, i) => {
+          let instr = underInstructions[i] || "";
+          currentStrengthExercises.push({ name: ex, instruction: instr });
+          html += renderExerciseItem(ex, instr);
+        });
+        html += `<br><div style="font-size:1.2em; font-weight:bold;">Oberkörper (Brust & Rücken, inkl. Zug, Druck, Rotations & unilateraler Übungen):</div>`;
+        oberSelected.forEach((ex, i) => {
+          let instr = oberInstructions[i] || "";
+          currentStrengthExercises.push({ name: ex, instruction: instr });
+          html += renderExerciseItem(ex, instr);
+        });
+        document.getElementById("strength-exercises").innerHTML = html;
+        document.getElementById("strength-timer").innerHTML = "";
+      }
       function startStrengthTimer() {
         unlockAudioContext();
         if (currentStrengthExercises.length === 0) {
@@ -1110,12 +1145,13 @@
             "Alle Strength & Power Übungen sind abgeschlossen.";
           return;
         }
-        if (strengthIntervalId) {
-          clearInterval(strengthIntervalId);
-        }
+        const timerDisplay = document.getElementById("strength-timer");
+        startPreparationTimer(beginStrengthTimer, timerDisplay);
+      }
+      function beginStrengthTimer() {
         let exercise = currentStrengthExercises[strengthIndex];
         let timeLeft = TIME_STRENGTH;
-        let timerDisplay = document.getElementById("strength-timer");
+        const timerDisplay = document.getElementById("strength-timer");
         timerDisplay.innerHTML =
           "Übung " +
           (strengthIndex + 1) +
@@ -1128,7 +1164,6 @@
           ") - " +
           timeLeft +
           " Sek.";
-
         strengthIntervalId = setInterval(function () {
           timeLeft--;
           timerDisplay.innerHTML =
@@ -1160,6 +1195,23 @@
         }, 1000);
       }
 
+      // --- Funktionelles Cardio ---
+      function generateCardio() {
+        if (cardioIntervalId) {
+          clearInterval(cardioIntervalId);
+          cardioIntervalId = null;
+        }
+        cardioIndex = 0;
+        const selected = getRandomElements(cardioExercises, 5);
+        currentCardioExercises = [];
+        let html = `<strong>Funktionelles Cardio (5 Minuten, EMOM):</strong>`;
+        selected.forEach((ex) => {
+          currentCardioExercises.push({ name: ex, instruction: "60 Sek." });
+          html += renderExerciseItem(ex, "60 Sek.");
+        });
+        document.getElementById("cardio-exercises").innerHTML = html;
+        document.getElementById("cardio-timer").innerHTML = "";
+      }
       function startCardioTimer() {
         unlockAudioContext();
         if (currentCardioExercises.length === 0) {
@@ -1171,12 +1223,13 @@
             "Alle Cardio Übungen sind abgeschlossen.";
           return;
         }
-        if (cardioIntervalId) {
-          clearInterval(cardioIntervalId);
-        }
+        const timerDisplay = document.getElementById("cardio-timer");
+        startPreparationTimer(beginCardioTimer, timerDisplay);
+      }
+      function beginCardioTimer() {
         let exercise = currentCardioExercises[cardioIndex];
         let timeLeft = TIME_CARDIO;
-        let timerDisplay = document.getElementById("cardio-timer");
+        const timerDisplay = document.getElementById("cardio-timer");
         timerDisplay.innerHTML =
           "Übung " +
           (cardioIndex + 1) +
@@ -1189,7 +1242,6 @@
           ") - " +
           timeLeft +
           " Sek.";
-
         cardioIntervalId = setInterval(function () {
           timeLeft--;
           timerDisplay.innerHTML =
@@ -1221,6 +1273,23 @@
         }, 1000);
       }
 
+      // --- HIIT ---
+      function generateHIIT() {
+        if (hiitIntervalId) {
+          clearInterval(hiitIntervalId);
+          hiitIntervalId = null;
+        }
+        hiitIndex = 0;
+        const selected = getRandomElements(hiitExercises, 4);
+        currentHIITExercises = [];
+        let html = `<strong>HIIT (10 Minuten, AMRAP):</strong>`;
+        selected.forEach((ex) => {
+          currentHIITExercises.push({ name: ex, instruction: "150 Sek." });
+          html += renderExerciseItem(ex, "150 Sek.");
+        });
+        document.getElementById("hiit-exercises").innerHTML = html;
+        document.getElementById("hiit-timer").innerHTML = "";
+      }
       function startHIITTimer() {
         unlockAudioContext();
         if (currentHIITExercises.length === 0) {
@@ -1232,12 +1301,13 @@
             "Alle HIIT Übungen sind abgeschlossen.";
           return;
         }
-        if (hiitIntervalId) {
-          clearInterval(hiitIntervalId);
-        }
+        const timerDisplay = document.getElementById("hiit-timer");
+        startPreparationTimer(beginHIITTimer, timerDisplay);
+      }
+      function beginHIITTimer() {
         let exercise = currentHIITExercises[hiitIndex];
         let timeLeft = TIME_HIIT;
-        let timerDisplay = document.getElementById("hiit-timer");
+        const timerDisplay = document.getElementById("hiit-timer");
         timerDisplay.innerHTML =
           "Übung " +
           (hiitIndex + 1) +
@@ -1250,7 +1320,6 @@
           ") - " +
           timeLeft +
           " Sek.";
-
         hiitIntervalId = setInterval(function () {
           timeLeft--;
           timerDisplay.innerHTML =
@@ -1282,6 +1351,23 @@
         }, 1000);
       }
 
+      // --- Cooldown ---
+      function generateCooldown() {
+        if (cooldownIntervalId) {
+          clearInterval(cooldownIntervalId);
+          cooldownIntervalId = null;
+        }
+        cooldownIndex = 0;
+        const selected = getRandomElements(cooldownExercises, 4);
+        currentCooldownExercises = [];
+        let html = `<strong>Cooldown & Regeneration (3 Minuten):</strong>`;
+        selected.forEach((ex) => {
+          currentCooldownExercises.push({ name: ex, instruction: "45 Sek." });
+          html += renderExerciseItem(ex, "45 Sek.");
+        });
+        document.getElementById("cooldown-exercises").innerHTML = html;
+        document.getElementById("cooldown-timer").innerHTML = "";
+      }
       function startCooldownTimer() {
         unlockAudioContext();
         if (currentCooldownExercises.length === 0) {
@@ -1293,12 +1379,13 @@
             "Alle Cooldown Übungen sind abgeschlossen.";
           return;
         }
-        if (cooldownIntervalId) {
-          clearInterval(cooldownIntervalId);
-        }
+        const timerDisplay = document.getElementById("cooldown-timer");
+        startPreparationTimer(beginCooldownTimer, timerDisplay);
+      }
+      function beginCooldownTimer() {
         let exercise = currentCooldownExercises[cooldownIndex];
         let timeLeft = TIME_COOLDOWN;
-        let timerDisplay = document.getElementById("cooldown-timer");
+        const timerDisplay = document.getElementById("cooldown-timer");
         timerDisplay.innerHTML =
           "Übung " +
           (cooldownIndex + 1) +
@@ -1311,7 +1398,6 @@
           ") - " +
           timeLeft +
           " Sek.";
-
         cooldownIntervalId = setInterval(function () {
           timeLeft--;
           timerDisplay.innerHTML =
