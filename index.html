@@ -95,7 +95,11 @@
         width: 100%;
         height: inherit;
         border-radius: inherit;
-        background: linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+        background: linear-gradient(
+          82.3deg,
+          rgba(150, 93, 233, 1) 10.8%,
+          rgba(99, 88, 238, 1) 94.3%
+        );
         transition: all 0.475s;
       }
       .button-content {
@@ -169,10 +173,14 @@
       .loader {
         width: 160px;
         height: 80px;
-        border: 4px solid #00F45B;
+        border: 4px solid #00f45b;
         border-right-color: transparent;
         padding: 6px;
-        background: repeating-linear-gradient(90deg, #00F45B 0 20px, transparent 0 30px)
+        background: repeating-linear-gradient(
+            90deg,
+            #00f45b 0 20px,
+            transparent 0 30px
+          )
           left/0% 100% no-repeat content-box content-box;
         position: relative;
         animation: p5 2s infinite steps(6);
@@ -185,15 +193,24 @@
         left: 100%;
         width: 20px;
         background: linear-gradient(
-            transparent calc(50% - 14px),
-            #00F45B 0 calc(50% - 10px),
-            transparent 0 calc(50% + 10px),
-            #00F45B 0 calc(50% + 14px),
-            transparent 0
-          ) left/100% 100%,
-          linear-gradient(#00F45B calc(50% - 10px), transparent 0 calc(50% + 10px), #00F45B 0)
+              transparent calc(50% - 14px),
+              #00f45b 0 calc(50% - 10px),
+              transparent 0 calc(50% + 10px),
+              #00f45b 0 calc(50% + 14px),
+              transparent 0
+            )
+            left/100% 100%,
+          linear-gradient(
+              #00f45b calc(50% - 10px),
+              transparent 0 calc(50% + 10px),
+              #00f45b 0
+            )
             left/4px 100%,
-          linear-gradient(transparent calc(50% - 10px), #00F45B 0 calc(50% + 10px), transparent 0)
+          linear-gradient(
+              transparent calc(50% - 10px),
+              #00f45b 0 calc(50% + 10px),
+              transparent 0
+            )
             right/4px 100%;
         background-repeat: no-repeat;
       }
@@ -210,7 +227,10 @@
     <!-- 1. Mobilisation (5 Minuten) -->
     <div class="section" id="mobilisation">
       <h2>Mobilisation (5 Minuten)</h2>
-      <p><strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne Pause aus.</p>
+      <p>
+        <strong>Hinweis:</strong> Führe die Mobilisationsübungen fließend ohne
+        Pause aus.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateMobilisation()">
           <span class="button-content">Generiere Mobilisation</span>
@@ -226,10 +246,15 @@
     <!-- 2. Koordination & Aktivierung (7 Minuten) -->
     <div class="section" id="koordination">
       <h2>Koordination & Aktivierung (7 Minuten)</h2>
-      <p><strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen und 30 Sek. Pause nach dem Block.</p>
+      <p>
+        <strong>Hinweis:</strong> Achte auf 15 Sek. Pause zwischen den Übungen
+        und 30 Sek. Pause nach dem Block.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateKoordination()">
-          <span class="button-content">Generiere Koordination & Aktivierung</span>
+          <span class="button-content"
+            >Generiere Koordination & Aktivierung</span
+          >
         </button>
         <button class="timer-button" onclick="startKoordinationTimer()">
           Start Timer
@@ -242,7 +267,11 @@
     <!-- 3. Strength & Power (15 Minuten) -->
     <div class="section" id="strength">
       <h2>Strength & Power (15 Minuten)</h2>
-      <p><strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust, Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und 60-90 Sek. Pause nach dem Block.</p>
+      <p>
+        <strong>Hinweis:</strong> French Contrast Methode mit Fokus auf Brust,
+        Rücken und Beine. Achte auf 15-20 Sek. Pause zwischen den Übungen und
+        60-90 Sek. Pause nach dem Block.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateStrength()">
           <span class="button-content">Generiere Strength & Power</span>
@@ -258,7 +287,10 @@
     <!-- 4. Funktionelles Cardio (5 Minuten, EMOM) -->
     <div class="section" id="cardio">
       <h2>Funktionelles Cardio (5 Minuten, EMOM)</h2>
-      <p><strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den Übungen, die Zeit wird per Minute gesteuert.</p>
+      <p>
+        <strong>Hinweis:</strong> Führe EMOM durch – keine Pause zwischen den
+        Übungen, die Zeit wird per Minute gesteuert.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateCardio()">
           <span class="button-content">Generiere Cardio</span>
@@ -274,7 +306,10 @@
     <!-- 5. HIIT (10 Minuten, AMRAP) -->
     <div class="section" id="hiit">
       <h2>HIIT (10 Minuten, AMRAP)</h2>
-      <p><strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek. Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.</p>
+      <p>
+        <strong>Hinweis:</strong> Führe AMRAP durch – achte auf maximal 10 Sek.
+        Pause zwischen den Übungen und 30-40 Sek. Pause nach einer Runde.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateHIIT()">
           <span class="button-content">Generiere HIIT</span>
@@ -290,7 +325,9 @@
     <!-- 6. Cooldown & Regeneration (3 Minuten) -->
     <div class="section" id="cooldown">
       <h2>Cooldown & Regeneration (3 Minuten)</h2>
-      <p><strong>Hinweis:</strong> Führe die Dehnübungen fließend ohne Pause aus.</p>
+      <p>
+        <strong>Hinweis:</strong> Führe die Dehnübungen fließend ohne Pause aus.
+      </p>
       <div class="button-container">
         <button class="button" onclick="generateCooldown()">
           <span class="button-content">Generiere Cooldown</span>
@@ -304,7 +341,12 @@
     </div>
 
     <!-- Modal für große Bildansicht -->
-    <div id="image-modal" class="image-modal" style="display: none" onclick="closeImageModal()">
+    <div
+      id="image-modal"
+      class="image-modal"
+      style="display: none"
+      onclick="closeImageModal()"
+    >
       <img id="modal-img" src="" alt="Großansicht" />
     </div>
 
@@ -332,219 +374,418 @@
       ==================================== */
       const exerciseImages = {
         // Mobilisation
-        "Cat-Cow Stretch": "https://cdn.jefit.com/assets/img/exercises/gifs/1423.gif",
-        "World's Greatest Stretch": "https://cdn.jefit.com/assets/img/exercises/gifs/959.gif",
-        "Deep Squat with Reach": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmlNZUzB-nfL2Xi8aqMAKDo9knruRhj8pYbg&s",
-        "90/90 Hip Switches": "https://i.ytimg.com/vi/qq_Z7sAmVrA/maxresdefault.jpg",
-        "Wrist Circles": "https://cdn.jefit.com/assets/img/exercises/gifs/862.gif",
-        "Ankle Circles": "https://cdn.jefit.com/assets/img/exercises/gifs/289.gif",
-        "Arm Circles": "https://cdn.jefit.com/assets/img/exercises/gifs/867.gif",
-        "Hip Circles": "https://www.spotebi.com/wp-content/uploads/2015/01/hip-circles-exercise-illustration.jpg",
-        "Torso Twists": "https://www.htsresort.com/wp-content/uploads/Torso-Twist.png",
-        "Spinal Rotations": "https://www.functionalmovement.com/exercises/image/28025",
-        "Shoulder Shrugs": "https://kettlebellsworkouts.com/wp-content/uploads/2019/02/24-Rolling_Shoulder_Circles.png",
-        "Neck Rolls": "https://as2.ftcdn.net/jpg/05/66/55/53/1000_F_566555332_zJautj4u8sBFXXBKfrAOoe3EE7TTIlR8.jpg",
-        "Leg Swings": "https://cdn.jefit.com/assets/img/exercises/gifs/1419.gif",
-        "Hip Flexor Mobilization": "https://sustainableexercise.wordpress.com/wp-content/uploads/2014/08/hip-flexor-pulse.jpg",
-        "Knee Circles": "https://cdn.jefit.com/assets/img/exercises/gifs/298.gif",
-        "Dynamic Hamstring Stretch": "https://cdn.jefit.com/assets/img/exercises/gifs/931.gif",
-        "Lunge with Twist": "https://cdn.jefit.com/assets/img/exercises/gifs/1429.gif",
-        "Inchworms": "https://cdn.jefit.com/assets/img/exercises/gifs/1340.gif",
-        "Side Lunge Stretch": "https://i.ytimg.com/vi/Pnm86I9HhVE/sddefault.jpg",
-        "Quadruped Rocking": "https://www.thestudentphysicaltherapist.com/uploads/1/3/2/6/13261333/425219879.jpg",
-        "Child’s Pose to Cobra": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKD1XeZSWww8gqtT0UojXfSoT_fXz19v4hzw&s",
-        "Butterfly Stretch": "https://manflowyoga.com/wp-content/uploads/2023/11/Butterfly-Stretch-for-Beginners-and-Men1.jpg",
-        "Seated Torso Twist": "https://experiencelife.lifetime.life/wp-content/uploads/2022/03/may22-bid-seated-twist.jpg",
-        "Standing Forward Bend": "https://www.spotebi.com/wp-content/uploads/2016/01/standing-forward-bend-pose-uttanasana.jpg",
-        "High Lunge with Reach": "https://i.vimeocdn.com/video/558071111-f4cdefa1c48d72a484ae321a895476cac4913ee6a6bd4079e19e19f43e1794d7-d?f=webp",
-        "Figure Four Stretch": "https://www.wikihow.com/images/thumb/9/9e/Do-a-Seated-Figure-Four-Step-7-Version-2.jpg/v4-460px-Do-a-Seated-Figure-Four-Step-7-Version-2.jpg.webp",
-        "Calf Stretch on Wall": "https://i.ytimg.com/vi/ttLUOooQXFk/maxresdefault.jpg",
-        "Pigeon Stretch": "https://manflowyoga.com/wp-content/uploads/2023/07/pigeon_pose_modification-1024x576.jpg",
-        "Side Plank Stretch": "https://experiencelife.lifetime.life/wp-content/uploads/2021/07/bid-side-plank.jpg",
-        "Scapular Wall Slides": "https://i.ytimg.com/vi/w3ZkueaK5Gc/maxresdefault.jpg",
-        "Dynamic Chest Opener": "https://cdn.jefit.com/assets/img/exercises/gifs/846.gif",
-        "Standing Side Bend": "https://cdn.jefit.com/assets/img/exercises/gifs/528.gif",
-        "Overhead Arm Reach": "https://cdn.jefit.com/assets/img/exercises/gifs/793.gif",
-        "Dynamic Back Extension": "https://learnmuscles.com/wp-content/uploads/2018/03/Back-Extension-Exercise-2-Permission-Joseph-E.-Muscolino-www.learnmuscles.com_-1024x693.jpg",
-        "Hip Openers": "https://ik.imagekit.io/02fmeo4exvw/fit-life/2015/10/2015-10-08-hip-2.jpg",
+        "Cat-Cow Stretch":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/1423.gif",
+        "World's Greatest Stretch":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/959.gif",
+        "Deep Squat with Reach":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmlNZUzB-nfL2Xi8aqMAKDo9knruRhj8pYbg&s",
+        "90/90 Hip Switches":
+          "https://i.ytimg.com/vi/qq_Z7sAmVrA/maxresdefault.jpg",
+        "Wrist Circles":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/862.gif",
+        "Ankle Circles":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/289.gif",
+        "Arm Circles":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/867.gif",
+        "Hip Circles":
+          "https://www.spotebi.com/wp-content/uploads/2015/01/hip-circles-exercise-illustration.jpg",
+        "Torso Twists":
+          "https://www.htsresort.com/wp-content/uploads/Torso-Twist.png",
+        "Spinal Rotations":
+          "https://www.functionalmovement.com/exercises/image/28025",
+        "Shoulder Shrugs":
+          "https://kettlebellsworkouts.com/wp-content/uploads/2019/02/24-Rolling_Shoulder_Circles.png",
+        "Neck Rolls":
+          "https://as2.ftcdn.net/jpg/05/66/55/53/1000_F_566555332_zJautj4u8sBFXXBKfrAOoe3EE7TTIlR8.jpg",
+        "Leg Swings":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/1419.gif",
+        "Hip Flexor Mobilization":
+          "https://sustainableexercise.wordpress.com/wp-content/uploads/2014/08/hip-flexor-pulse.jpg",
+        "Knee Circles":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/298.gif",
+        "Dynamic Hamstring Stretch":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/931.gif",
+        "Lunge with Twist":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/1429.gif",
+        Inchworms: "https://cdn.jefit.com/assets/img/exercises/gifs/1340.gif",
+        "Side Lunge Stretch":
+          "https://i.ytimg.com/vi/Pnm86I9HhVE/sddefault.jpg",
+        "Quadruped Rocking":
+          "https://www.thestudentphysicaltherapist.com/uploads/1/3/2/6/13261333/425219879.jpg",
+        "Child’s Pose to Cobra":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKD1XeZSWww8gqtT0UojXfSoT_fXz19v4hzw&s",
+        "Butterfly Stretch":
+          "https://manflowyoga.com/wp-content/uploads/2023/11/Butterfly-Stretch-for-Beginners-and-Men1.jpg",
+        "Seated Torso Twist":
+          "https://experiencelife.lifetime.life/wp-content/uploads/2022/03/may22-bid-seated-twist.jpg",
+        "Standing Forward Bend":
+          "https://www.spotebi.com/wp-content/uploads/2016/01/standing-forward-bend-pose-uttanasana.jpg",
+        "High Lunge with Reach":
+          "https://i.vimeocdn.com/video/558071111-f4cdefa1c48d72a484ae321a895476cac4913ee6a6bd4079e19e19f43e1794d7-d?f=webp",
+        "Figure Four Stretch":
+          "https://www.wikihow.com/images/thumb/9/9e/Do-a-Seated-Figure-Four-Step-7-Version-2.jpg/v4-460px-Do-a-Seated-Figure-Four-Step-7-Version-2.jpg.webp",
+        "Calf Stretch on Wall":
+          "https://i.ytimg.com/vi/ttLUOooQXFk/maxresdefault.jpg",
+        "Pigeon Stretch":
+          "https://manflowyoga.com/wp-content/uploads/2023/07/pigeon_pose_modification-1024x576.jpg",
+        "Side Plank Stretch":
+          "https://experiencelife.lifetime.life/wp-content/uploads/2021/07/bid-side-plank.jpg",
+        "Scapular Wall Slides":
+          "https://i.ytimg.com/vi/w3ZkueaK5Gc/maxresdefault.jpg",
+        "Dynamic Chest Opener":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/846.gif",
+        "Standing Side Bend":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/528.gif",
+        "Overhead Arm Reach":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/793.gif",
+        "Dynamic Back Extension":
+          "https://learnmuscles.com/wp-content/uploads/2018/03/Back-Extension-Exercise-2-Permission-Joseph-E.-Muscolino-www.learnmuscles.com_-1024x693.jpg",
+        "Hip Openers":
+          "https://ik.imagekit.io/02fmeo4exvw/fit-life/2015/10/2015-10-08-hip-2.jpg",
         // Koordination & Aktivierung
-        "Single-Leg Balance": "https://cdn.jefit.com/assets/img/exercises/gifs/662.gif",
-        "Lateral Hops": "https://www.shutterstock.com/shutterstock/photos/2316122749/display_1500/stock-vector-man-doing-side-or-lateral-shuffles-or-hops-skaters-exercise-flat-vector-illustration-isolated-on-2316122749.jpg",
-        "Reaction Drill": "https://i.ytimg.com/vi/pf5Hq_ZwdJ0/maxresdefault.jpg",
-        "Skater Hops": "https://thumbs.dreamstime.com/z/skater-hops-exercise-girl-silhouettes-outlined-concept-guide-black-wite-working-home-her-lateral-hip-strength-young-298156052.jpg",
-        "Tandem Walk": "https://akm-img-a-in.tosshub.com/sites/rd/resources/embed/202305/image-56_050923035838.jpg",
-        "Heel-to-Toe Walk": "https://lirp.cdn-website.com/1029fcf4/dms3rep/multi/opt/Heel-Toe-Raises-400x320-640w.jpg",
-        "Agility Ladder Drill": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOVpYiCj7opqr323_83-8a7STD7bOoKrLGnQ&s",
-        "Mini Hurdles": "https://c8.alamy.com/compde/r88pnb/ein-athlet-bekommt-einige-agility-training-uber-mini-hurden-spiessgang-getan-r88pnb.jpg",
-        "Cone Drills": "https://file.sportlane.com/blog/uploads/b2e7edeec2ff400f90518af7f430310d.jpg",
-        "Side-to-Side Jumps": "https://www.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.jpg",
-        "Balance Beam Walk": "https://cdn11.bigcommerce.com/s-tddaa/images/stencil/1280x1280/products/1522/9686/PFS014_8-feet_Straight_Balance_Beam_with_kid__03871.1677521842.jpg?c=2",
-        "Single-Leg Squat": "https://cdn.mos.cms.futurecdn.net/VAN8aidkJWHCvT2VkocJRc-1200-80.jpg",
-        "Dynamic Balance on Bosu": "https://ik.imagekit.io/02fmeo4exvw/expert-articles/2016/02/2016-02-03-bosu-6.jpg",
-        "Stability Ball Balance": "https://www.criticalbench.com/exercises/pics/balance2.jpg",
+        "Single-Leg Balance":
+          "https://cdn.jefit.com/assets/img/exercises/gifs/662.gif",
+        "Lateral Hops":
+          "https://www.shutterstock.com/shutterstock/photos/2316122749/display_1500/stock-vector-man-doing-side-or-lateral-shuffles-or-hops-skaters-exercise-flat-vector-illustration-isolated-on-2316122749.jpg",
+        "Reaction Drill":
+          "https://i.ytimg.com/vi/pf5Hq_ZwdJ0/maxresdefault.jpg",
+        "Skater Hops":
+          "https://thumbs.dreamstime.com/z/skater-hops-exercise-girl-silhouettes-outlined-concept-guide-black-wite-working-home-her-lateral-hip-strength-young-298156052.jpg",
+        "Tandem Walk":
+          "https://akm-img-a-in.tosshub.com/sites/rd/resources/embed/202305/image-56_050923035838.jpg",
+        "Heel-to-Toe Walk":
+          "https://lirp.cdn-website.com/1029fcf4/dms3rep/multi/opt/Heel-Toe-Raises-400x320-640w.jpg",
+        "Agility Ladder Drill":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOVpYiCj7opqr323_83-8a7STD7bOoKrLGnQ&s",
+        "Mini Hurdles":
+          "https://c8.alamy.com/compde/r88pnb/ein-athlet-bekommt-einige-agility-training-uber-mini-hurden-spiessgang-getan-r88pnb.jpg",
+        "Cone Drills":
+          "https://file.sportlane.com/blog/uploads/b2e7edeec2ff400f90518af7f430310d.jpg",
+        "Side-to-Side Jumps":
+          "https://www.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.jpg",
+        "Balance Beam Walk":
+          "https://cdn11.bigcommerce.com/s-tddaa/images/stencil/1280x1280/products/1522/9686/PFS014_8-feet_Straight_Balance_Beam_with_kid__03871.1677521842.jpg?c=2",
+        "Single-Leg Squat":
+          "https://cdn.mos.cms.futurecdn.net/VAN8aidkJWHCvT2VkocJRc-1200-80.jpg",
+        "Dynamic Balance on Bosu":
+          "https://ik.imagekit.io/02fmeo4exvw/expert-articles/2016/02/2016-02-03-bosu-6.jpg",
+        "Stability Ball Balance":
+          "https://www.criticalbench.com/exercises/pics/balance2.jpg",
         "Mirror Drill": "https://i.ytimg.com/vi/NAVLlfGxQOE/maxresdefault.jpg",
         "Quick Feet Drill": "https://i.ytimg.com/vi/wnc-USTRncg/hqdefault.jpg",
-        "Lateral Shuffle": "https://www.spotebi.com/wp-content/uploads/2015/12/side-shuffle-exercise-illustration.jpg",
+        "Lateral Shuffle":
+          "https://www.spotebi.com/wp-content/uploads/2015/12/side-shuffle-exercise-illustration.jpg",
         "Speed Skips": "https://i.ytimg.com/vi/URTmDmi5u8c/maxresdefault.jpg",
-        "Zigzag Drill": "https://www.sportplan.net/viewer/movies/Rugby/thumbs/r400001.gif",
-        "Single-Leg Deadlift Balance": "https://i.ytimg.com/vi/F6JeOeHtlOU/maxresdefault.jpg",
+        "Zigzag Drill":
+          "https://www.sportplan.net/viewer/movies/Rugby/thumbs/r400001.gif",
+        "Single-Leg Deadlift Balance":
+          "https://i.ytimg.com/vi/F6JeOeHtlOU/maxresdefault.jpg",
         "Clock Drill": "https://i.ytimg.com/vi/ejfx7fBrwog/maxresdefault.jpg",
-        "Jumping Jacks with Balance": "https://i.ytimg.com/vi/IzzyQxvoEYc/sddefault.jpg",
-        "Balance Reach": "https://i.ytimg.com/vi/2r9adehRzIA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBJItWu7hJhYxsvzz4MzZQl0u8g3A",
-        "Plyometric Lateral Bound": "https://i.ytimg.com/vi/Rlf8hQ-Jzis/maxresdefault.jpg",
-        "Rotational Balance": "https://i.ytimg.com/vi/08p6R_QthYU/hqdefault.jpg",
-        "Dynamic Knee Drive": "https://img.livestrong.com/-/media-storage/contentlab-data/5/24/03f40137b0c546bb98f16633ceaa361f.jpg",
-        "Quick Step Shuffle": "https://i.ytimg.com/vi/jdHBn3Wllrg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGDkgZSg7MA8=&rs=AOn4CLB9s5PmxBxppCyABD4lhe4A3vp4Ag",
-        "Cross-Over Steps": "https://www.spotebi.com/wp-content/uploads/2016/09/step-up-crossover-exercise-illustration-spotebi.jpg",
+        "Jumping Jacks with Balance":
+          "https://i.ytimg.com/vi/IzzyQxvoEYc/sddefault.jpg",
+        "Balance Reach":
+          "https://i.ytimg.com/vi/2r9adehRzIA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBJItWu7hJhYxsvzz4MzZQl0u8g3A",
+        "Plyometric Lateral Bound":
+          "https://i.ytimg.com/vi/Rlf8hQ-Jzis/maxresdefault.jpg",
+        "Rotational Balance":
+          "https://i.ytimg.com/vi/08p6R_QthYU/hqdefault.jpg",
+        "Dynamic Knee Drive":
+          "https://img.livestrong.com/-/media-storage/contentlab-data/5/24/03f40137b0c546bb98f16633ceaa361f.jpg",
+        "Quick Step Shuffle":
+          "https://i.ytimg.com/vi/jdHBn3Wllrg/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGDkgZSg7MA8=&rs=AOn4CLB9s5PmxBxppCyABD4lhe4A3vp4Ag",
+        "Cross-Over Steps":
+          "https://www.spotebi.com/wp-content/uploads/2016/09/step-up-crossover-exercise-illustration-spotebi.jpg",
         // Strength & Power – Unterkörper
-        "Bulgarian Split Squat (Kniedominant)": "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
-        "Deadlift (Hüftdominant)": "https://hips.hearstapps.com/hmg-prod/images/deadlift-1651142430.jpg?crop=1.00xw:0.845xh;0,0.0510xh&resize=980:*",
-        "Squat (Kombination)": "https://images.ctfassets.net/8urtyqugdt2l/6O5FSYt3miUVVqapCMfHjw/260cc09740d493f43d8aa8b498d500bf/desktop-sumo-squats.jpg",
-        "Lunges (Unilateral)": "https://geeksonfeet.com/img/workouts/suitcaselunge.jpg",
-        "Step-Ups (Explosiv)": "https://i.ytimg.com/vi/vnP-ZKi0ZAM/maxresdefault.jpg",
-        "Hip Thrust (Hüftdominant)": "https://cdn.shopify.com/s/files/1/1490/1130/files/glute_bridge_480x480.jpg?v=1694622200",
-        "Goblet Squat": "https://static.strengthlevel.com/images/exercises/goblet-squat/goblet-squat-800.jpg",
-        "Pistol Squat (Unilateral)": "https://hips.hearstapps.com/hmg-prod/images/heromoves-3-index-1548352348.png",
-        "Box Squat": "https://static.strengthlevel.com/images/exercises/box-squat/box-squat-800.jpg",
-        "Sumo Squat": "https://www.kettlebellkings.com/cdn/shop/articles/Kettlebell_Sumo_Squat.jpg?v=1732016655",
-        "Single-Leg Romanian Deadlift (Hüftdominant)": "https://i.ytimg.com/vi/MsE_T9nAsSE/maxresdefault.jpg",
-        "Curtsy Lunge (Unilateral)": "https://cdn.shopify.com/s/files/1/0645/8762/8770/files/Curtsey_lunges_with_kettlebells_480x480.png?v=1703660170",
-        "Lateral Lunge (Kniedominant)": "https://hips.hearstapps.com/hmg-prod/images/lateral-lunge-1599492697.jpg",
+        "Bulgarian Split Squat (Kniedominant)":
+          "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
+        "Deadlift (Hüftdominant)":
+          "https://hips.hearstapps.com/hmg-prod/images/deadlift-1651142430.jpg?crop=1.00xw:0.845xh;0,0.0510xh&resize=980:*",
+        "Squat (Kombination)":
+          "https://images.ctfassets.net/8urtyqugdt2l/6O5FSYt3miUVVqapCMfHjw/260cc09740d493f43d8aa8b498d500bf/desktop-sumo-squats.jpg",
+        "Lunges (Unilateral)":
+          "https://geeksonfeet.com/img/workouts/suitcaselunge.jpg",
+        "Step-Ups (Explosiv)":
+          "https://i.ytimg.com/vi/vnP-ZKi0ZAM/maxresdefault.jpg",
+        "Hip Thrust (Hüftdominant)":
+          "https://cdn.shopify.com/s/files/1/1490/1130/files/glute_bridge_480x480.jpg?v=1694622200",
+        "Goblet Squat":
+          "https://static.strengthlevel.com/images/exercises/goblet-squat/goblet-squat-800.jpg",
+        "Pistol Squat (Unilateral)":
+          "https://hips.hearstapps.com/hmg-prod/images/heromoves-3-index-1548352348.png",
+        "Box Squat":
+          "https://static.strengthlevel.com/images/exercises/box-squat/box-squat-800.jpg",
+        "Sumo Squat":
+          "https://www.kettlebellkings.com/cdn/shop/articles/Kettlebell_Sumo_Squat.jpg?v=1732016655",
+        "Single-Leg Romanian Deadlift (Hüftdominant)":
+          "https://i.ytimg.com/vi/MsE_T9nAsSE/maxresdefault.jpg",
+        "Curtsy Lunge (Unilateral)":
+          "https://cdn.shopify.com/s/files/1/0645/8762/8770/files/Curtsey_lunges_with_kettlebells_480x480.png?v=1703660170",
+        "Lateral Lunge (Kniedominant)":
+          "https://hips.hearstapps.com/hmg-prod/images/lateral-lunge-1599492697.jpg",
         "Front Squat": "https://i.ytimg.com/vi/uYumuL_G_V0/sddefault.jpg",
-        "Reverse Lunge": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/15811101-Bodyweight-Rear-Lunge_Thighs_small.jpg",
-        "Split Jump Squat": "https://www.reynoldsgroup.co.uk/wp-content/uploads/515.jpg",
-        "Jumping Lunges (Explosiv)": "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
-        "Glute Bridge": "https://hips.hearstapps.com/hmg-prod/images/glutebridge-1603107150.jpg?resize=980:*",
-        "Kniegestützte Donkey Kicks": "https://i.ytimg.com/vi/Zmi989h1m8k/maxresdefault.jpg",
-        "Kettlebell Swing (Hüftdominant)": "https://hips.hearstapps.com/hmg-prod/images/kettlebell-swing-russian-65a545944fe15.jpg?resize=980:*",
-        "Banded Reverse Walking": "https://hips.hearstapps.com/hmg-prod/images/1076/03-backward-walkouts-1504833169.jpg?resize=980:*",
-        "Sled Drag": "https://cdn.muscleandstrength.com/sites/default/files/reverse-sled-drag.jpg",
+        "Reverse Lunge":
+          "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/15811101-Bodyweight-Rear-Lunge_Thighs_small.jpg",
+        "Split Jump Squat":
+          "https://www.reynoldsgroup.co.uk/wp-content/uploads/515.jpg",
+        "Jumping Lunges (Explosiv)":
+          "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
+        "Glute Bridge":
+          "https://hips.hearstapps.com/hmg-prod/images/glutebridge-1603107150.jpg?resize=980:*",
+        "Kniegestützte Donkey Kicks":
+          "https://i.ytimg.com/vi/Zmi989h1m8k/maxresdefault.jpg",
+        "Kettlebell Swing (Hüftdominant)":
+          "https://hips.hearstapps.com/hmg-prod/images/kettlebell-swing-russian-65a545944fe15.jpg?resize=980:*",
+        "Banded Reverse Walking":
+          "https://hips.hearstapps.com/hmg-prod/images/1076/03-backward-walkouts-1504833169.jpg?resize=980:*",
+        "Sled Drag":
+          "https://cdn.muscleandstrength.com/sites/default/files/reverse-sled-drag.jpg",
         "Weighted Step-Down": "https://i.ytimg.com/vi/p0g2kKvYu7k/hq2.jpg",
-        "Single-Leg Box Squat": "https://i.ytimg.com/vi/uJ4eA2wUXdw/maxresdefault.jpg",
-        "Explosive Split Squat": "https://i.ytimg.com/vi/RIz0HVz6-Go/maxresdefault.jpg",
-        "Skater Squat (Unilateral)": "https://simplifaster.com/wp-content/uploads/2022/09/Skater-Squats-Header.jpg",
-        "Sumo Deadlift": "https://www.kettlebellkings.com/cdn/shop/articles/kettlebell_sumo_deadlift.jpg?v=1732018260",
-        "trap bar deadlifts": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-RqfI5ga21sGG1ET262IGwioSmYtUS2x_zQ&s",
+        "Single-Leg Box Squat":
+          "https://i.ytimg.com/vi/uJ4eA2wUXdw/maxresdefault.jpg",
+        "Explosive Split Squat":
+          "https://i.ytimg.com/vi/RIz0HVz6-Go/maxresdefault.jpg",
+        "Skater Squat (Unilateral)":
+          "https://simplifaster.com/wp-content/uploads/2022/09/Skater-Squats-Header.jpg",
+        "Sumo Deadlift":
+          "https://www.kettlebellkings.com/cdn/shop/articles/kettlebell_sumo_deadlift.jpg?v=1732018260",
+        "trap bar deadlifts":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-RqfI5ga21sGG1ET262IGwioSmYtUS2x_zQ&s",
         // Strength & Power – Oberkörper
-        "Weighted Dips (Druck)": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/17551101-Weighted-Tricep-Dips_Upper-Arms_small.jpg",
-        "Landmine Press (Druck)": "https://www.dmoose.com/cdn/shop/articles/1_29c9d6a3-c2ad-4ad0-af9d-eadc397b0ac0.jpg?v=1653734257",
-        "Explosive Med Ball Chest Pass (Druck)": "https://fitnessprogramer.com/wp-content/uploads/2023/08/Standing-Medicine-Ball-Chest-Pass.gif",
-        "Plyo Push-Up (Druck)": "https://steelsupplements.com/cdn/shop/articles/Plyo_Pushup_-_Cover_-_shutterstock_696587908_1000x.jpg?v=1669232225",
-        "Weighted Pull-Up (Zug)": "https://images.squarespace-cdn.com/content/v1/5750d5129f72662d66448028/1484255567238-23GFQZIBWD24PCHYH8AF/Pull-Up+%28Weighted+-+Male%29.jpg",
+        "Weighted Dips (Druck)":
+          "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-assets/17551101-Weighted-Tricep-Dips_Upper-Arms_small.jpg",
+        "Landmine Press (Druck)":
+          "https://www.dmoose.com/cdn/shop/articles/1_29c9d6a3-c2ad-4ad0-af9d-eadc397b0ac0.jpg?v=1653734257",
+        "Explosive Med Ball Chest Pass (Druck)":
+          "https://fitnessprogramer.com/wp-content/uploads/2023/08/Standing-Medicine-Ball-Chest-Pass.gif",
+        "Plyo Push-Up (Druck)":
+          "https://steelsupplements.com/cdn/shop/articles/Plyo_Pushup_-_Cover_-_shutterstock_696587908_1000x.jpg?v=1669232225",
+        "Weighted Pull-Up (Zug)":
+          "https://images.squarespace-cdn.com/content/v1/5750d5129f72662d66448028/1484255567238-23GFQZIBWD24PCHYH8AF/Pull-Up+%28Weighted+-+Male%29.jpg",
         "TRX Row (Zug)": "https://i.ytimg.com/vi/fW_jdwZT804/maxresdefault.jpg",
-        "Seal Row (Zug)": "https://s3assets.skimble.com/assets/2897510/image_iphone.jpg",
-        "Inverted Row (Zug)": "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F4450%3Fw%3D1024%26h%3D576&w=3840&q=75",
-        "meadows row": "https://www.newbodyplan.co.uk/wp-content/uploads/2023/07/meadows_row_barbell_dumbbell_back_biceps_lats_gym_training_workout.jpg",
-        "landmine press": "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2023/08/25100640/landmine-press-600-example.jpg",
-        "Incline Push-Up (Druck)": "https://weighttraining.guide/wp-content/uploads/2021/03/Incline-push-up-on-box.png",
-        "Decline Push-Up (Druck)": "https://static.strengthlevel.com/images/exercises/decline-push-up/decline-push-up-800.jpg",
-        "Single-Arm Landmine Row (Zug, Unilateral)": "https://cdn.shopify.com/s/files/1/0449/8453/3153/files/Landmine-Meadows-Row_600x600.jpg?v=1719972694",
-        "Bent-Over Row (Zug)": "https://hips.hearstapps.com/hmg-prod/images/bent-over-row-1590133418.jpg?crop=0.956xw:0.820xh;0.0442xw,0.101xh&resize=980:*",
-        "Medicine Ball Slams (Druck)": "https://www.dmoose.com/cdn/shop/articles/1_8edc8c93-6b37-433a-a1e8-243c4de27ea2.jpg?v=1648912735",
-        "Landmine Rotation (Rotations)": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYvphsgUXJCvhzxUNS0wbPfcrI_Chg1rqlAA&s",
-        "Bodyweight Archer Push-Ups": "https://images.ctfassets.net/3s5io6mnxfqz/208jWMo9bDTRy6zO7BLsZ0/3dc9cb5c3a62a0dd759dd0e956877170/AdobeStock_128465959.jpeg?w=1920",
-        "Dumbbell Pullover (Zug)": "https://weighttraining.guide/wp-content/uploads/2016/06/Dumbbell-Pullover-resized.png",
-        "Push-Up with Rotation (Druck, Rotations)": "https://s3.amazonaws.com/prod.skimble/assets/1654486/image_iphone.jpg",
-        "TRX Chest Press": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNw-D2U5imVf_Ur0KnHm5aG55k3hMW0VcCVg&s",
-        "Svend Press (Druck)": "https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-svend-press.jpg",
-        "Kettlebell Floor Press (Druck)": "https://www.kettlebellkings.com/cdn/shop/articles/Kettlebell_Floor_Press.jpg?v=1732870470",
-        "Stability Ball Dumbbell Press": "https://cdn-0.weighttraining.guide/wp-content/uploads/2021/09/Dumbbell-press-on-a-stability-ball.png?ezimgfmt=ng%3Awebp%2Fngcb4",
-        "Reverse Fly (Zug)": "https://fitnessvolt.com/wp-content/uploads/2021/02/dumbbell-reverse-fly-exercise.jpg",
-        "Renegade Row (Zug, Unilateral)": "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F0521%3Fw%3D1024%26h%3D576&w=3840&q=75",
-        "Explosive Clap Push-Ups (Druck)": "https://www.inspireusafoundation.org/wp-content/uploads/2023/04/clapping-push-up-benefits-1024x576.png",
-        "Single-Arm Dumbbell Row (Zug)": "https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-single-arm-bent-over-row.jpg",
-        "Pendlay Rows mit Langhantel": "https://fitwill.app/api/image/3017?p=1&w=1024&h=512",
+        "Seal Row (Zug)":
+          "https://s3assets.skimble.com/assets/2897510/image_iphone.jpg",
+        "Inverted Row (Zug)":
+          "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F4450%3Fw=1024%26h=576&q=75",
+        "meadows row":
+          "https://www.newbodyplan.co.uk/wp-content/uploads/2023/07/meadows_row_barbell_dumbbell_back_biceps_lats_gym_training_workout.jpg",
+        "landmine press":
+          "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2023/08/25100640/landmine-press-600-example.jpg",
+        "Incline Push-Up (Druck)":
+          "https://weighttraining.guide/wp-content/uploads/2021/03/Incline-push-up-on-box.png",
+        "Decline Push-Up (Druck)":
+          "https://static.strengthlevel.com/images/exercises/decline-push-up/decline-push-up-800.jpg",
+        "Single-Arm Landmine Row (Zug, Unilateral)":
+          "https://cdn.shopify.com/s/files/1/0449/8453/3153/files/Landmine-Meadows-Row_600x600.jpg?v=1719972694",
+        "Bent-Over Row (Zug)":
+          "https://hips.hearstapps.com/hmg-prod/images/bent-over-row-1590133418.jpg?crop=0.956xw:0.820xh;0.0442xw,0.101xh&resize=980:*",
+        "Medicine Ball Slams (Druck)":
+          "https://www.dmoose.com/cdn/shop/articles/1_8edc8c93-6b37-433a-a1e8-243c4de27ea2.jpg?v=1648912735",
+        "Landmine Rotation (Rotations)":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYvphsgUXJCvhzxUNS0wbPfcrI_Chg1rqlAA&s",
+        "Bodyweight Archer Push-Ups":
+          "https://images.ctfassets.net/3s5io6mnxfqz/208jWMo9bDTRy6zO7BLsZ0/3dc9cb5c3a62a0dd759dd0e956877170/AdobeStock_128465959.jpeg?w=1920",
+        "Dumbbell Pullover (Zug)":
+          "https://weighttraining.guide/wp-content/uploads/2016/06/Dumbbell-Pullover-resized.png",
+        "Push-Up with Rotation (Druck, Rotations)":
+          "https://s3.amazonaws.com/prod.skimble/assets/1654486/image_iphone.jpg",
+        "TRX Chest Press":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNw-D2U5imVf_Ur0KnHm5aG55k3hMW0VcCVg&s",
+        "Svend Press (Druck)":
+          "https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-svend-press.jpg",
+        "Kettlebell Floor Press (Druck)":
+          "https://www.kettlebellkings.com/cdn/shop/articles/Kettlebell_Floor_Press.jpg?v=1732870470",
+        "Stability Ball Dumbbell Press":
+          "https://cdn-0.weighttraining.guide/wp-content/uploads/2021/09/Dumbbell-press-on-a-stability-ball.png?ezimgfmt=ng%3Awebp%2Fngcb4",
+        "Reverse Fly (Zug)":
+          "https://fitnessvolt.com/wp-content/uploads/2021/02/dumbbell-reverse-fly-exercise.jpg",
+        "Renegade Row (Zug, Unilateral)":
+          "https://fitwill.app/_next/image?url=https%3A%2F%2Ffitwill.app%2Fapi%2Fimage%2F0521%3Fw=1024%26h=576&q=75",
+        "Explosive Clap Push-Ups (Druck)":
+          "https://www.inspireusafoundation.org/wp-content/uploads/2023/04/clapping-push-up-benefits-1024x576.png",
+        "Single-Arm Dumbbell Row (Zug)":
+          "https://liftmanual.com/wp-content/uploads/2023/04/dumbbell-single-arm-bent-over-row.jpg",
+        "Pendlay Rows mit Langhantel":
+          "https://fitwill.app/api/image/3017?p=1&w=1024&h=512",
         // Funktionelles Cardio
-        "Kettlebell Swings": "https://i.ytimg.com/vi/mKDIuUbH94Q/maxresdefault.jpg",
-        "Sled Push": "https://barbend.com/wp-content/uploads/2022/03/BarBend-Article-Image-760-x-427-41.jpg",
-        "Farmer Walk": "https://www.dmoose.com/cdn/shop/articles/1_9631b298-37ec-4b0e-975f-dd6ba6a7c4c9.jpg?v=1653565657",
-        "Box Jump Overs": "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/12/man-box-jump-burpee-gym-1109.jpg?quality=86&strip=all",
-        "Explosive Step-Ups": "https://hips.hearstapps.com/runnersworld-uk/i/15198/40895.jpg",
-        "Burpees to Jump Touch": "https://thechiaco.com/us/wp-content/uploads/2016/09/Burpees-how-to.jpg",
-        "Rope Slams": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKK1XLuJ39TRXQSog5K3gMhYVUAFr8aC3FEA&s",
-        "Battle Ropes": "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_484,c_limit/a99d68db-73c0-4ac4-b174-ac21d3786a73/battle-ropes-vorteile-und-%C3%BCbungen.jpg",
-        "Jumping Jacks": "https://www.shutterstock.com/image-vector/man-doing-jumping-jacks-home-260nw-1984566902.jpg",
-        "Mountain Climbers": "https://images.livemint.com/img/2023/09/28/original/Fitness_mountain_climbers_1695909933565.jpg",
-        "High Knees": "https://hips.hearstapps.com/hmg-prod/images/mh40-highknees-1660062564.jpg?resize=980:*",
-        "Butt Kickers": "https://hips.hearstapps.com/hmg-prod/images/mh40-buttkicks-1660661031.jpg",
-        "Skaters": "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2ODA3MTkzNTg1MTU3/skater.jpg",
-        "Lateral Shuffle": "https://www.spotebi.com/wp-content/uploads/2015/12/side-shuffle-exercise-illustration.jpg",
+        "Kettlebell Swings":
+          "https://hips.hearstapps.com/hmg-prod/images/kettlebell-swing-russian-65a545944fe15.jpg?resize=980:*",
+        "Sled Push":
+          "https://barbend.com/wp-content/uploads/2022/03/BarBend-Article-Image-760-x-427-41.jpg",
+        "Farmer Walk":
+          "https://www.dmoose.com/cdn/shop/articles/1_9631b298-37ec-4b0e-975f-dd6ba6a7c4c9.jpg?v=1653565657",
+        "Box Jump Overs":
+          "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2018/12/man-box-jump-burpee-gym-1109.jpg?quality=86&strip=all",
+        "Explosive Step-Ups":
+          "https://hips.hearstapps.com/runnersworld-uk/i/15198/40895.jpg",
+        "Burpees to Jump Touch":
+          "https://thechiaco.com/us/wp-content/uploads/2016/09/Burpees-how-to.jpg",
+        "Rope Slams":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKK1XLuJ39TRXQSog5K3gMhYVUAFr8aC3FEA&s",
+        "Battle Ropes":
+          "https://static.nike.com/a/images/f_auto/dpr_3.0,cs_srgb/h_484,c_limit/a99d68db-73c0-4ac4-b174-ac21d3786a73/battle-ropes-vorteile-und-%C3%BCbungen.jpg",
+        "Jumping Jacks":
+          "https://www.shutterstock.com/image-vector/man-doing-jumping-jacks-home-260nw-1984566902.jpg",
+        "Mountain Climbers":
+          "https://images.livemint.com/img/2023/09/28/original/Fitness_mountain_climbers_1695909933565.jpg",
+        "High Knees":
+          "https://hips.hearstapps.com/hmg-prod/images/mh40-highknees-1660062564.jpg?resize=980:*",
+        "Butt Kickers":
+          "https://hips.hearstapps.com/hmg-prod/images/mh40-buttkicks-1660661031.jpg",
+        Skaters:
+          "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk2MTM2ODA3MTkzNTg1MTU3/skater.jpg",
+        "Lateral Shuffle":
+          "https://www.spotebi.com/wp-content/uploads/2015/12/side-shuffle-exercise-illustration.jpg",
         "Speed Skips": "https://i.ytimg.com/vi/8byzgIPOlAI/maxresdefault.jpg",
-        "Tuck Jumps": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFVFf5q1WeP2TKX-h3sSTNiFOQcc7dws6EQ&s",
-        "Lunge Jumps": "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
-        "Plank Jacks": "https://www.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.jpg",
-        "Squat Thrusts": "https://www.spotebi.com/wp-content/uploads/2015/01/squat-thrust-exercise-illustration.jpg",
-        "Bear Crawls": "https://cdn.mos.cms.futurecdn.net/qkxXcYVNLkL2GSV6c4NxU5.jpg",
-        "Inch Worms": "https://images.healthshots.com/healthshots/en/uploads/2023/01/25105542/Inchworm-exercise-1600x900.jpg",
-        "Side-to-Side Hops": "https://www.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.jpg",
-        "Jump Rope": "https://go-zone.ca/cdn/shop/products/191730243376_1_2000x.jpg?v=1646754549",
-        "Reverse Lunges": "https://www.wikihow.com/images/thumb/c/c0/Do-a-Reverse-Lunge-Step-8-Version-2.jpg/v4-460px-Do-a-Reverse-Lunge-Step-8-Version-2.jpg",
+        "Tuck Jumps":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFVFf5q1WeP2TKX-h3sSTNiFOQcc7dws6EQ&s",
+        "Lunge Jumps":
+          "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
+        "Plank Jacks":
+          "https://www.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.jpg",
+        "Squat Thrusts":
+          "https://www.spotebi.com/wp-content/uploads/2015/01/squat-thrust-exercise-illustration.jpg",
+        "Bear Crawls":
+          "https://cdn.mos.cms.futurecdn.net/qkxXcYVNLkL2GSV6c4NxU5.jpg",
+        "Inch Worms":
+          "https://images.healthshots.com/healthshots/en/uploads/2023/01/25105542/Inchworm-exercise-1600x900.jpg",
+        "Side-to-Side Hops":
+          "https://www.spotebi.com/wp-content/uploads/2016/08/side-to-side-hops-exercise-illustration-spotebi.jpg",
+        "Jump Rope":
+          "https://go-zone.ca/cdn/shop/products/191730243376_1_2000x.jpg?v=1646754549",
+        "Reverse Lunges":
+          "https://www.wikihow.com/images/thumb/c/c0/Do-a-Reverse-Lunge-Step-8-Version-2.jpg/v4-460px-Do-a-Reverse-Lunge-Step-8-Version-2.jpg",
         "Quick Feet Drill": "https://i.ytimg.com/vi/wnc-USTRncg/hqdefault.jpg",
-        "Shadow Boxing": "https://experiencelife.lifetime.life/wp-content/uploads/2021/03/Shadowboxing-Basics-1.jpg",
-        "Sprint in Place": "https://i.ytimg.com/vi/eWgFr6EPfJM/maxresdefault.jpg",
+        "Shadow Boxing":
+          "https://experiencelife.lifetime.life/wp-content/uploads/2021/03/Shadowboxing-Basics-1.jpg",
+        "Sprint in Place":
+          "https://i.ytimg.com/vi/eWgFr6EPfJM/maxresdefault.jpg",
         "Star Jumps": "https://i.ytimg.com/vi/lkYtECQYrWo/maxresdefault.jpg",
-        "Lateral Box Jumps": "https://liftmanual.com/wp-content/uploads/2023/04/lateral-box-jump.jpg",
-        "Medicine Ball Slams": "https://www.dmoose.com/cdn/shop/articles/1_8edc8c93-6b37-433a-a1e8-243c4de27ea2.jpg?v=1648912735",
-        "Agility Ladder Drill": "https://i.ytimg.com/vi/7NeGJABh_yM/maxresdefault.jpg",
-        "Burpee Broad Jumps": "https://hips.hearstapps.com/hmg-prod/images/burpee-broad-jump-1543521185.jpg?crop=1xw:1xh;center,top&resize=980:*",
-        "Step-Ups with Knee Drive": "https://www.spotebi.com/wp-content/uploads/2015/05/step-up-with-knee-raise-exercise-illustration.jpg",
+        "Lateral Box Jumps":
+          "https://liftmanual.com/wp-content/uploads/2023/04/lateral-box-jump.jpg",
+        "Medicine Ball Slams":
+          "https://www.dmoose.com/cdn/shop/articles/1_8edc8c93-6b37-433a-a1e8-243c4de27ea2.jpg?v=1648912735",
+        "Agility Ladder Drill":
+          "https://i.ytimg.com/vi/7NeGJABh_yM/maxresdefault.jpg",
+        "Burpee Broad Jumps":
+          "https://hips.hearstapps.com/hmg-prod/images/burpee-broad-jump-1543521185.jpg?crop=1xw:1xh;center,top&resize=980:*",
+        "Step-Ups with Knee Drive":
+          "https://www.spotebi.com/wp-content/uploads/2015/05/step-up-with-knee-raise-exercise-illustration.jpg",
         "Dynamic Plank": "https://i.ytimg.com/vi/ZCkNb-UsNAU/maxresdefault.jpg",
-        "Plyometric Push-Ups": "https://www.reynoldsgroup.co.uk/wp-content/uploads/385.jpg",
-        "Skater Bounds": "https://experiencelife.lifetime.life/wp-content/uploads/2021/02/skater-jump.jpg",
+        "Plyometric Push-Ups":
+          "https://www.reynoldsgroup.co.uk/wp-content/uploads/385.jpg",
+        "Skater Bounds":
+          "https://experiencelife.lifetime.life/wp-content/uploads/2021/02/skater-jump.jpg",
         // HIIT
-        "Deadlift to High Pull": "https://i.ytimg.com/vi/gh55vVlwlQg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhaXyt0cOMnR7Ew66mRN6jp3nA4A",
-        "Bulgarian Split Squat Jump": "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
-        "Explosive TRX Row": "https://hips.hearstapps.com/hmg-prod/images/trx-row-1587374498.jpg?resize=980:*",
-        "Med Ball Rotational Throw": "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/04/5ExerciseAthletesMedicineBall.jpg?quality=86&strip=all",
-        "Unilateral Overhead Lunge": "https://hips.hearstapps.com/hmg-prod/images/overhead-walking-lunge-1622028918.jpg?resize=980:*",
-        "Kettlebell Swings": "https://hips.hearstapps.com/hmg-prod/images/kettlebell-swing-russian-65a545944fe15.jpg?resize=980:*",
-        "Box Jumps": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmYOq6t1altQH7b7jeVkS_lc2XsfopLHD0VQ&s",
-        "Plyo Push-Ups": "https://i0.wp.com/azideperformance.com/wp-content/uploads/2023/04/plyometric_483x350_11.jpg?fit=483%2C350&ssl=1",
-        "Russian Twists": "https://www.kettlebellkings.com/cdn/shop/articles/russian-twist_1200x1200_crop_center.gif?v=1731308412",
-        "Mountain Climbers": "https://images.livemint.com/img/2023/09/28/original/Fitness_mountain_climbers_1695909933565.jpg",
-        "Plank to Push-Up": "https://i.pinimg.com/564x/a2/e7/e2/a2e7e2fb70013dac2054b5e0c17bd5f6.jpg",
-        "Squat Jumps": "https://www.dmoose.com/cdn/shop/articles/1_a9d19710-8ac5-44c7-9685-31970351036d.jpg?v=1648740804",
-        "Lunge Jumps": "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
-        "Jumping Lunges": "https://i.ytimg.com/vi/cIkkHg8YZQU/maxresdefault.jpg",
-        "Tuck Jumps": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFVFf5q1WeP2TKX-h3sSTNiFOQcc7dws6EQ&s",
-        "Skater Jumps": "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2023/12/19114248/skater-jumps-960.png",
-        "Lateral Bound": "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/04/1109-lateral-bounds.jpg?quality=86&strip=all",
-        "High Knees": "https://hips.hearstapps.com/hmg-prod/images/mh40-highknees-1660062564.jpg?resize=980:*",
-        "Butt Kickers": "https://hips.hearstapps.com/hmg-prod/images/mh40-buttkicks-1660661031.jpg",
-        "Spider-Man Push-Ups": "https://www.stack.com/wp-content/uploads/2014/03/Spider-Man-Push-Ups-2.jpg",
-        "Alternating Side Lunges": "https://www.spotebi.com/wp-content/uploads/2015/02/alternating-side-lunge-exercise-illustration.jpg",
-        "Single-Leg Hops": "https://geeksonfeet.com/img/workouts/single-leg-hops.jpg",
-        "Explosive Step-Ups": "https://i.ytimg.com/vi/vnP-ZKi0ZAM/maxresdefault.jpg",
-        "Reverse Lunge to Knee Drive": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mMNqooeYXKTe2Ip-IEK7vGAj0QTd2vF2rQ&s",
-        "Burpees": "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2017/04/burpee-1109.jpg?w=1200&h=630&crop=1&quality=86&strip=all",
-        "Jumping Jacks": "https://www.shutterstock.com/image-vector/man-doing-jumping-jacks-home-260nw-1984566902.jpg",
-        "Plank Jacks": "https://www.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.jpg",
-        "Sit-Outs": "https://ik.imagekit.io/02fmeo4exvw/blogs/blog-fitnovatives-031214-7.jpg",
+        "Deadlift to High Pull":
+          "https://i.ytimg.com/vi/gh55vVlwlQg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDhaXyt0cOMnR7Ew66mRN6jp3nA4A",
+        "Bulgarian Split Squat Jump":
+          "https://hips.hearstapps.com/hmg-prod/images/split-squat-1633602373.jpg",
+        "Explosive TRX Row":
+          "https://hips.hearstapps.com/hmg-prod/images/trx-row-1587374498.jpg?resize=980:*",
+        "Med Ball Rotational Throw":
+          "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/04/5ExerciseAthletesMedicineBall.jpg?quality=86&strip=all",
+        "Unilateral Overhead Lunge":
+          "https://hips.hearstapps.com/hmg-prod/images/overhead-walking-lunge-1622028918.jpg?resize=980:*",
+        "Kettlebell Swings":
+          "https://hips.hearstapps.com/hmg-prod/images/kettlebell-swing-russian-65a545944fe15.jpg?resize=980:*",
+        "Box Jumps":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmYOq6t1altQH7b7jeVkS_lc2XsfopLHD0VQ&s",
+        "Plyo Push-Ups":
+          "https://i0.wp.com/azideperformance.com/wp-content/uploads/2023/04/plyometric_483x350_11.jpg?fit=483%2C350&ssl=1",
+        "Russian Twists":
+          "https://www.lyfta.app/_next/image?url=%2Fthumbnails%2F43931201.jpg&w=3840&q=20",
+        "Mountain Climbers":
+          "https://images.livemint.com/img/2023/09/28/original/Fitness_mountain_climbers_1695909933565.jpg",
+        "Plank to Push-Up":
+          "https://i.pinimg.com/564x/a2/e7/e2/a2e7e2fb70013dac2054b5e0c17bd5f6.jpg",
+        "Squat Jumps":
+          "https://www.dmoose.com/cdn/shop/articles/1_a9d19710-8ac5-44c7-9685-31970351036d.jpg?v=1648740804",
+        "Lunge Jumps":
+          "https://www.fitforfun.de/files/images/201806/1/7,297305_m_n.jpg",
+        "Jumping Lunges":
+          "https://i.ytimg.com/vi/cIkkHg8YZQU/maxresdefault.jpg",
+        "Tuck Jumps":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFVFf5q1WeP2TKX-h3sSTNiFOQcc7dws6EQ&s",
+        "Skater Jumps":
+          "https://bod-blog-assets.prod.cd.beachbodyondemand.com/bod-blog/wp-content/uploads/2023/12/19114248/skater-jumps-960.png",
+        "Lateral Bound":
+          "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/04/1109-lateral-bounds.jpg?quality=86&strip=all",
+        "High Knees":
+          "https://hips.hearstapps.com/hmg-prod/images/mh40-highknees-1660062564.jpg?resize=980:*",
+        "Butt Kickers":
+          "https://hips.hearstapps.com/hmg-prod/images/mh40-buttkicks-1660661031.jpg",
+        "Spider-Man Push-Ups":
+          "https://www.stack.com/wp-content/uploads/2014/03/Spider-Man-Push-Ups-2.jpg",
+        "Alternating Side Lunges":
+          "https://www.spotebi.com/wp-content/uploads/2015/02/alternating-side-lunge-exercise-illustration.jpg",
+        "Single-Leg Hops":
+          "https://geeksonfeet.com/img/workouts/single-leg-hops.jpg",
+        "Explosive Step-Ups":
+          "https://i.ytimg.com/vi/vnP-ZKi0ZAM/maxresdefault.jpg",
+        "Reverse Lunge to Knee Drive":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mMNqooeYXKTe2Ip-IEK7vGAj0QTd2vF2rQ&s",
+        Burpees:
+          "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2017/04/burpee-1109.jpg?w=1200&h=630&crop=1&quality=86&strip=all",
+        "Jumping Jacks":
+          "https://www.shutterstock.com/image-vector/man-doing-jumping-jacks-home-260nw-1984566902.jpg",
+        "Plank Jacks":
+          "https://www.spotebi.com/wp-content/uploads/2015/04/plank-jacks-exercise-illustration.jpg",
+        "Sit-Outs":
+          "https://ik.imagekit.io/02fmeo4exvw/blogs/blog-fitnovatives-031214-7.jpg",
+        // Zusätzlich in HIIT sollen immer diese Übungen enthalten sein:
+        Klimmzug:
+          "https://weighttraining.guide/wp-content/uploads/2016/10/pull-up-2-resized.png",
+        Liegestütz:
+          "https://www.marathonfitness.de/wp-content/uploads/2023/09/liegestuetz-titel.jpg",
         // Cooldown & Regeneration
         "Child’s Pose": "https://i.ytimg.com/vi/qYvYsFrTI0U/maxresdefault.jpg",
-        "Hip Flexor Stretch": "https://i.ytimg.com/vi/tsGPYSQbZx4/hqdefault.jpg",
-        "Seated Forward Fold": "https://www.ekhartyoga.com/media/images/articles/content/Paschimottanasana-Seated-Forward-bend-Ekhart-Yoga.jpg",
-        "Thoracic Rotation Stretch": "https://sustainableexercise.wordpress.com/wp-content/uploads/2014/08/side-lying-thoracic-extension-rotation.jpg",
-        "Standing Quad Stretch": "https://liftmanual.com/wp-content/uploads/2023/04/standing-quadriceps-stretch.jpg",
-        "Calf Stretch": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz3uk1l53am9XtCQkJwoMKdd_ast80zpjnRQ&s",
-        "Butterfly Stretch": "https://manflowyoga.com/wp-content/uploads/2023/11/Butterfly-Stretch-for-Beginners-and-Men1.jpg",
-        "Chest Stretch": "https://www.spotebi.com/wp-content/uploads/2015/06/chest-stretch-exercise-illustration.jpg",
-        "Shoulder Stretch": "https://www.dmoose.com/cdn/shop/articles/1_Main_Image_5db14a4e-660d-43ac-8b67-70e00c7962e1.jpg?v=1670938957",
-        "Triceps Stretch": "https://www.spotebi.com/wp-content/uploads/2014/10/triceps-stretch-exercise-illustration.jpg",
-        "Side Bend Stretch": "https://www.spotebi.com/wp-content/uploads/2016/02/standing-side-bend-exercise-illustration-spotebi.jpg",
-        "Lying Spinal Twist": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuJjE-Ws9E2MZ7qtzihr7kGWlkEYdTh8qbg&s",
-        "Pigeon Pose": "https://images.ctfassets.net/p0sybd6jir6r/3MNagkluwLBql1r1TuGXqm/443f130acbb306566bbe35f8a53e6c78/variation-of-half-pigeon-pose-34dc127c903f9050e34084069308035a.jpg",
-        "Figure Four Stretch": "https://images.squarespace-cdn.com/content/v1/5f5e8592d2b0854b18af6975/633c95c0-d91c-409f-83d2-44bdb74a3603/Figure+4+Stretch.jpg",
-        "Overhead Stretch": "https://images.squarespace-cdn.com/content/v1/5652f717e4b0070eb05c2f63/1652376335801-B4LTAGE4IZWCYH7VV5J8/Overhead+stretch+for+seniors+over+60.jpg",
-        "Hamstring Stretch": "https://hips.hearstapps.com/hmg-prod/images/muscular-sportsman-warming-up-before-sports-royalty-free-image-1568733806.jpg?resize=980:*",
-        "Cobra Pose": "https://cdn.yogajournal.com/wp-content/uploads/2022/06/Upward-Facing-Dog-Mod-1_Andrew-Clark-e1670972827524.jpg",
-        "Neck Stretch": "https://media.istockphoto.com/id/1299770487/photo/man-training-and-stretching-body-at-home.jpg?s=612x612&w=0&k=20&c=cKSiI5otYIntCazqfHSWeKMvybzbl3Wy4aV5Erz3iOU=",
-        "Wrist Stretch": "https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324489/wrist-rotations.jpg",
-        "Ankle Stretch": "https://www.hss.edu/images/socialmedia/ankle-fitness-1200x630.gif",
-        "Lower Back Stretch": "https://www.baptisthealth.com/-/media/images/migrated/blog-images/teaser-images/gettyimages-802581672.jpg?rev=2e49d755597e495cb718f31e27e122f9",
-        "Quadriceps Stretch": "https://liftmanual.com/wp-content/uploads/2023/04/quadriceps-stretch.jpg",
-        "Banded Shoulder Stretch": "https://mirafit.co.uk/wp/wp-content/uploads/2019/05/Christmas-stocking-filler-ideas-man-using-a-green-resistance-band-across-his-chest.jpg",
-        "Dynamic Hip Opener": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqLvRxCuP8ul_EH-z5_uorer0trvkWq6F9uA&s"
+        "Hip Flexor Stretch":
+          "https://i.ytimg.com/vi/tsGPYSQbZx4/hqdefault.jpg",
+        "Seated Forward Fold":
+          "https://www.ekhartyoga.com/media/images/articles/content/Paschimottanasana-Seated-Forward-bend-Ekhart-Yoga.jpg",
+        "Thoracic Rotation Stretch":
+          "https://sustainableexercise.wordpress.com/wp-content/uploads/2014/08/side-lying-thoracic-extension-rotation.jpg",
+        "Standing Quad Stretch":
+          "https://liftmanual.com/wp-content/uploads/2023/04/standing-quadriceps-stretch.jpg",
+        "Calf Stretch":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz3uk1l53am9XtCQkJwoMKdd_ast80zpjnRQ&s",
+        "Butterfly Stretch":
+          "https://manflowyoga.com/wp-content/uploads/2023/11/Butterfly-Stretch-for-Beginners-and-Men1.jpg",
+        "Chest Stretch":
+          "https://www.spotebi.com/wp-content/uploads/2015/06/chest-stretch-exercise-illustration.jpg",
+        "Shoulder Stretch":
+          "https://www.dmoose.com/cdn/shop/articles/1_Main_Image_5db14a4e-660d-43ac-8b67-70e00c7962e1.jpg?v=1670938957",
+        "Triceps Stretch":
+          "https://www.spotebi.com/wp-content/uploads/2014/10/triceps-stretch-exercise-illustration.jpg",
+        "Side Bend Stretch":
+          "https://www.spotebi.com/wp-content/uploads/2016/02/standing-side-bend-exercise-illustration-spotebi.jpg",
+        "Lying Spinal Twist":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCuJjE-Ws9E2MZ7qtzihr7kGWlkEYdTh8qbg&s",
+        "Pigeon Pose":
+          "https://images.ctfassets.net/p0sybd6jir6r/3MNagkluwLBql1r1TuGXqm/443f130acbb306566bbe35f8a53e6c78/variation-of-half-pigeon-pose-34dc127c903f9050e34084069308035a.jpg",
+        "Figure Four Stretch":
+          "https://images.squarespace-cdn.com/content/v1/5f5e8592d2b0854b18af6975/633c95c0-d91c-409f-83d2-44bdb74a3603/Figure+4+Stretch.jpg",
+        "Overhead Stretch":
+          "https://images.squarespace-cdn.com/content/v1/5652f717e4b0070eb05c2f63/1652376335801-B4LTAGE4IZWCYH7VV5J8/Overhead+stretch+for+seniors+over+60.jpg",
+        "Hamstring Stretch":
+          "https://hips.hearstapps.com/hmg-prod/images/muscular-sportsman-warming-up-before-sports-royalty-free-image-1568733806.jpg?resize=980:*",
+        "Cobra Pose":
+          "https://cdn.yogajournal.com/wp-content/uploads/2022/06/Upward-Facing-Dog-Mod-1_Andrew-Clark-e1670972827524.jpg",
+        "Neck Stretch":
+          "https://media.istockphoto.com/id/1299770487/photo/man-training-and-stretching-body-at-home.jpg?s=612x612&w=0&k=20&c=cKSiI5otYIntCazqfHSWeKMvybzbl3Wy4aV5Erz3iOU=",
+        "Wrist Stretch":
+          "https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324489/wrist-rotations.jpg",
+        "Ankle Stretch":
+          "https://www.hss.edu/images/socialmedia/ankle-fitness-1200x630.gif",
+        "Lower Back Stretch":
+          "https://www.baptisthealth.com/-/media/images/migrated/blog-images/teaser-images/gettyimages-802581672.jpg?rev=2e49d755597e495cb718f31e27e122f9",
+        "Quadriceps Stretch":
+          "https://liftmanual.com/wp-content/uploads/2023/04/quadriceps-stretch.jpg",
+        "Banded Shoulder Stretch":
+          "https://mirafit.co.uk/wp/wp-content/uploads/2019/05/Christmas-stocking-filler-ideas-man-using-a-green-resistance-band-across-his-chest.jpg",
+        "Dynamic Hip Opener":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqLvRxCuP8ul_EH-z5_uorer0trvkWq6F9uA&s",
       };
 
       // Globale Arrays für generierte Übungen
@@ -557,20 +798,22 @@
 
       // Globale Index-Zähler & Intervalle pro Kategorie
       let mobilisationIndex = 0,
-          koordinationIndex = 0,
-          strengthIndex = 0,
-          cardioIndex = 0,
-          hiitIndex = 0,
-          cooldownIndex = 0;
+        koordinationIndex = 0,
+        strengthIndex = 0,
+        cardioIndex = 0,
+        hiitIndex = 0,
+        cooldownIndex = 0;
       let mobilisationIntervalId = null,
-          koordinationIntervalId = null,
-          strengthIntervalId = null,
-          cardioIntervalId = null,
-          hiitIntervalId = null,
-          cooldownIntervalId = null;
+        koordinationIntervalId = null,
+        strengthIntervalId = null,
+        cardioIntervalId = null,
+        hiitIntervalId = null,
+        cooldownIntervalId = null;
 
       // Beep-Sound (wie bisher)
-      const beep = new Audio("https://www.myinstants.com/media/sounds/beep.mp3");
+      const beep = new Audio(
+        "https://www.myinstants.com/media/sounds/beep.mp3"
+      );
       beep.preload = "auto";
       beep.load();
 
@@ -582,9 +825,14 @@
       // Funktion zum "Unlocken" des Audio-Kontextes (wichtig für iOS)
       function unlockAudioContext() {
         if (beep.paused) {
-          beep.play().then(() => { beep.pause(); }).catch((error) => {
-            console.error("Audio Unlock Error:", error);
-          });
+          beep
+            .play()
+            .then(() => {
+              beep.pause();
+            })
+            .catch((error) => {
+              console.error("Audio Unlock Error:", error);
+            });
         }
       }
 
@@ -623,16 +871,16 @@
         countdownSound.pause();
         countdownSound.currentTime = 0;
         countdownSound.play();
-        
-        let section = timerDisplay.closest('.section');
-        let overlay = document.createElement('div');
+
+        let section = timerDisplay.closest(".section");
+        let overlay = document.createElement("div");
         overlay.className = "prep-overlay";
         overlay.innerHTML = `<div class="loader"></div>
                              <div class="prep-countdown" style="text-align:center; font-size:2em; margin-top:10px; color: #fff;">${prepTime}</div>`;
         section.appendChild(overlay);
-        let prepInterval = setInterval(function() {
+        let prepInterval = setInterval(function () {
           prepTime--;
-          let countdownEl = overlay.querySelector('.prep-countdown');
+          let countdownEl = overlay.querySelector(".prep-countdown");
           countdownEl.innerHTML = prepTime;
           if (prepTime <= 0) {
             clearInterval(prepInterval);
@@ -646,60 +894,230 @@
          Übungslisten
       ==================================== */
       const mobilisationExercises = [
-        "Cat-Cow Stretch", "World's Greatest Stretch", "Deep Squat with Reach", "90/90 Hip Switches", "Wrist Circles",
-        "Ankle Circles", "Arm Circles", "Hip Circles", "Torso Twists", "Spinal Rotations", "Shoulder Shrugs", "Neck Rolls",
-        "Leg Swings", "Hip Flexor Mobilization", "Knee Circles", "Dynamic Hamstring Stretch", "Lunge with Twist", "Inchworms",
-        "Side Lunge Stretch", "Quadruped Rocking", "Child’s Pose to Cobra", "Butterfly Stretch", "Seated Torso Twist",
-        "Standing Forward Bend", "High Lunge with Reach", "Figure Four Stretch", "Calf Stretch on Wall", "Pigeon Stretch",
-        "Side Plank Stretch", "Scapular Wall Slides", "Dynamic Chest Opener", "Standing Side Bend", "Overhead Arm Reach",
-        "Dynamic Back Extension", "Hip Openers"
+        "Cat-Cow Stretch",
+        "World's Greatest Stretch",
+        "Deep Squat with Reach",
+        "90/90 Hip Switches",
+        "Wrist Circles",
+        "Ankle Circles",
+        "Arm Circles",
+        "Hip Circles",
+        "Torso Twists",
+        "Spinal Rotations",
+        "Shoulder Shrugs",
+        "Neck Rolls",
+        "Leg Swings",
+        "Hip Flexor Mobilization",
+        "Knee Circles",
+        "Dynamic Hamstring Stretch",
+        "Lunge with Twist",
+        "Inchworms",
+        "Side Lunge Stretch",
+        "Quadruped Rocking",
+        "Child’s Pose to Cobra",
+        "Butterfly Stretch",
+        "Seated Torso Twist",
+        "Standing Forward Bend",
+        "High Lunge with Reach",
+        "Figure Four Stretch",
+        "Calf Stretch on Wall",
+        "Pigeon Stretch",
+        "Side Plank Stretch",
+        "Scapular Wall Slides",
+        "Dynamic Chest Opener",
+        "Standing Side Bend",
+        "Overhead Arm Reach",
+        "Dynamic Back Extension",
+        "Hip Openers",
       ];
       const koordinationExercises = [
-        "Single-Leg Balance", "Lateral Hops", "Reaction Drill", "Skater Hops", "Tandem Walk", "Heel-to-Toe Walk",
-        "Agility Ladder Drill", "Mini Hurdles", "Cone Drills", "Side-to-Side Jumps", "Balance Beam Walk", "Single-Leg Squat",
-        "Dynamic Balance on Bosu", "Stability Ball Balance", "Mirror Drill", "Quick Feet Drill", "Lateral Shuffle",
-        "Speed Skips", "Zigzag Drill", "Single-Leg Deadlift Balance", "Clock Drill", "Jumping Jacks with Balance",
-        "Balance Reach", "Plyometric Lateral Bound", "Rotational Balance", "Dynamic Knee Drive", "Quick Step Shuffle",
-        "Cross-Over Steps"
+        "Single-Leg Balance",
+        "Lateral Hops",
+        "Reaction Drill",
+        "Skater Hops",
+        "Tandem Walk",
+        "Heel-to-Toe Walk",
+        "Agility Ladder Drill",
+        "Mini Hurdles",
+        "Cone Drills",
+        "Side-to-Side Jumps",
+        "Balance Beam Walk",
+        "Single-Leg Squat",
+        "Dynamic Balance on Bosu",
+        "Stability Ball Balance",
+        "Mirror Drill",
+        "Quick Feet Drill",
+        "Lateral Shuffle",
+        "Speed Skips",
+        "Zigzag Drill",
+        "Single-Leg Deadlift Balance",
+        "Clock Drill",
+        "Jumping Jacks with Balance",
+        "Balance Reach",
+        "Plyometric Lateral Bound",
+        "Rotational Balance",
+        "Dynamic Knee Drive",
+        "Quick Step Shuffle",
+        "Cross-Over Steps",
       ];
       const strengthUnderExercises = [
-        "Bulgarian Split Squat (Kniedominant)", "Deadlift (Hüftdominant)", "Squat (Kombination)", "Lunges (Unilateral)",
-        "Step-Ups (Explosiv)", "Hip Thrust (Hüftdominant)", "Goblet Squat", "Pistol Squat (Unilateral)", "Box Squat",
-        "Sumo Squat", "Single-Leg Romanian Deadlift (Hüftdominant)", "Curtsy Lunge (Unilateral)", "Lateral Lunge (Kniedominant)",
-        "Front Squat", "Reverse Lunge", "Split Jump Squat", "Jumping Lunges (Explosiv)", "Glute Bridge", "Kniegestützte Donkey Kicks",
-        "Kettlebell Swing (Hüftdominant)", "Banded Reverse Walking", "Sled Drag", "Weighted Step-Down", "Single-Leg Box Squat",
-        "Explosive Split Squat", "Skater Squat (Unilateral)", "Sumo Deadlift", "trap bar deadlifts"
+        "Bulgarian Split Squat (Kniedominant)",
+        "Deadlift (Hüftdominant)",
+        "Squat (Kombination)",
+        "Lunges (Unilateral)",
+        "Step-Ups (Explosiv)",
+        "Hip Thrust (Hüftdominant)",
+        "Goblet Squat",
+        "Pistol Squat (Unilateral)",
+        "Box Squat",
+        "Sumo Squat",
+        "Single-Leg Romanian Deadlift (Hüftdominant)",
+        "Curtsy Lunge (Unilateral)",
+        "Lateral Lunge (Kniedominant)",
+        "Front Squat",
+        "Reverse Lunge",
+        "Split Jump Squat",
+        "Jumping Lunges (Explosiv)",
+        "Glute Bridge",
+        "Kniegestützte Donkey Kicks",
+        "Kettlebell Swing (Hüftdominant)",
+        "Banded Reverse Walking",
+        "Sled Drag",
+        "Weighted Step-Down",
+        "Single-Leg Box Squat",
+        "Explosive Split Squat",
+        "Skater Squat (Unilateral)",
+        "Sumo Deadlift",
+        "trap bar deadlifts",
       ];
       const strengthOberExercises = [
-        "Weighted Dips (Druck)", "Landmine Press (Druck)", "Explosive Med Ball Chest Pass (Druck)", "Plyo Push-Up (Druck)",
-        "Weighted Pull-Up (Zug)", "TRX Row (Zug)", "Seal Row (Zug)", "Inverted Row (Zug)", "meadows row", "landmine press",
-        "Incline Push-Up (Druck)", "Decline Push-Up (Druck)", "Single-Arm Landmine Row (Zug, Unilateral)", "Bent-Over Row (Zug)",
-        "Medicine Ball Slams (Druck)", "Landmine Rotation (Rotations)", "Bodyweight Archer Push-Ups", "Dumbbell Pullover (Zug)",
-        "Push-Up with Rotation (Druck, Rotations)", "TRX Chest Press", "Svend Press (Druck)", "Kettlebell Floor Press (Druck)",
-        "Stability Ball Dumbbell Press", "Reverse Fly (Zug)", "Renegade Row (Zug, Unilateral)", "Explosive Clap Push-Ups (Druck)",
-        "Single-Arm Dumbbell Row (Zug)", "Pendlay Rows mit Langhantel"
+        "Weighted Dips (Druck)",
+        "Landmine Press (Druck)",
+        "Explosive Med Ball Chest Pass (Druck)",
+        "Plyo Push-Up (Druck)",
+        "Weighted Pull-Up (Zug)",
+        "TRX Row (Zug)",
+        "Seal Row (Zug)",
+        "Inverted Row (Zug)",
+        "meadows row",
+        "landmine press",
+        "Incline Push-Up (Druck)",
+        "Decline Push-Up (Druck)",
+        "Single-Arm Landmine Row (Zug, Unilateral)",
+        "Bent-Over Row (Zug)",
+        "Medicine Ball Slams (Druck)",
+        "Landmine Rotation (Rotations)",
+        "Bodyweight Archer Push-Ups",
+        "Dumbbell Pullover (Zug)",
+        "Push-Up with Rotation (Druck, Rotations)",
+        "TRX Chest Press",
+        "Svend Press (Druck)",
+        "Kettlebell Floor Press (Druck)",
+        "Stability Ball Dumbbell Press",
+        "Reverse Fly (Zug)",
+        "Renegade Row (Zug, Unilateral)",
+        "Explosive Clap Push-Ups (Druck)",
+        "Single-Arm Dumbbell Row (Zug)",
+        "Pendlay Rows mit Langhantel",
       ];
       const cardioExercises = [
-        "Kettlebell Swings", "Sled Push", "Farmer Walk", "Box Jump Overs", "Explosive Step-Ups", "Burpees to Jump Touch",
-        "Rope Slams", "Battle Ropes", "Jumping Jacks", "Mountain Climbers", "High Knees", "Butt Kickers", "Skaters",
-        "Lateral Shuffle", "Speed Skips", "Tuck Jumps", "Lunge Jumps", "Plank Jacks", "Squat Thrusts", "Bear Crawls",
-        "Inch Worms", "Side-to-Side Hops", "Jump Rope", "Reverse Lunges", "Quick Feet Drill", "Shadow Boxing",
-        "Sprint in Place", "Star Jumps", "Lateral Box Jumps", "Medicine Ball Slams", "Agility Ladder Drill",
-        "Burpee Broad Jumps", "Step-Ups with Knee Drive", "Dynamic Plank", "Plyometric Push-Ups", "Skater Bounds"
+        "Kettlebell Swings",
+        "Sled Push",
+        "Farmer Walk",
+        "Box Jump Overs",
+        "Explosive Step-Ups",
+        "Burpees to Jump Touch",
+        "Rope Slams",
+        "Battle Ropes",
+        "Jumping Jacks",
+        "Mountain Climbers",
+        "High Knees",
+        "Butt Kickers",
+        "Skaters",
+        "Lateral Shuffle",
+        "Speed Skips",
+        "Tuck Jumps",
+        "Lunge Jumps",
+        "Plank Jacks",
+        "Squat Thrusts",
+        "Bear Crawls",
+        "Inch Worms",
+        "Side-to-Side Hops",
+        "Jump Rope",
+        "Reverse Lunges",
+        "Quick Feet Drill",
+        "Shadow Boxing",
+        "Sprint in Place",
+        "Star Jumps",
+        "Lateral Box Jumps",
+        "Medicine Ball Slams",
+        "Agility Ladder Drill",
+        "Burpee Broad Jumps",
+        "Step-Ups with Knee Drive",
+        "Dynamic Plank",
+        "Plyometric Push-Ups",
+        "Skater Bounds",
       ];
+      // Beachte: In HIIT werden wir 2 fixe Übungen (Klimmzug und Liegestütz) hinzufügen
       const hiitExercises = [
-        "Deadlift to High Pull", "Bulgarian Split Squat Jump", "Explosive TRX Row", "Med Ball Rotational Throw",
-        "Unilateral Overhead Lunge", "Kettlebell Swings", "Box Jumps", "Plyo Push-Ups", "Russian Twists", "Mountain Climbers",
-        "Plank to Push-Up", "Squat Jumps", "Lunge Jumps", "Jumping Lunges", "Tuck Jumps", "Skater Jumps", "Lateral Bound",
-        "High Knees", "Butt Kickers", "Spider-Man Push-Ups", "Alternating Side Lunges", "Single-Leg Hops", "Explosive Step-Ups",
-        "Reverse Lunge to Knee Drive", "Burpees", "Jumping Jacks", "Plank Jacks", "Sit-Outs"
+        "Deadlift to High Pull",
+        "Bulgarian Split Squat Jump",
+        "Explosive TRX Row",
+        "Med Ball Rotational Throw",
+        "Unilateral Overhead Lunge",
+        "Kettlebell Swings",
+        "Box Jumps",
+        "Plyo Push-Ups",
+        "Russian Twists",
+        "Mountain Climbers",
+        "Plank to Push-Up",
+        "Squat Jumps",
+        "Lunge Jumps",
+        "Jumping Lunges",
+        "Tuck Jumps",
+        "Skater Jumps",
+        "Lateral Bound",
+        "High Knees",
+        "Butt Kickers",
+        "Spider-Man Push-Ups",
+        "Alternating Side Lunges",
+        "Single-Leg Hops",
+        "Explosive Step-Ups",
+        "Reverse Lunge to Knee Drive",
+        "Burpees",
+        "Jumping Jacks",
+        "Plank Jacks",
+        "Sit-Outs",
       ];
       const cooldownExercises = [
-        "Child’s Pose", "Hip Flexor Stretch", "Seated Forward Fold", "Thoracic Rotation Stretch", "Standing Quad Stretch",
-        "Calf Stretch", "Butterfly Stretch", "Chest Stretch", "Shoulder Stretch", "Triceps Stretch", "Side Bend Stretch",
-        "Lying Spinal Twist", "Pigeon Pose", "Figure Four Stretch", "Overhead Stretch", "Hamstring Stretch", "Cat-Cow Stretch",
-        "Dynamic Chest Opener", "Cobra Pose", "Seated Torso Twist", "Neck Stretch", "Wrist Stretch", "Ankle Stretch",
-        "Side Plank Stretch", "Lower Back Stretch", "Quadriceps Stretch", "Banded Shoulder Stretch", "Dynamic Hip Opener"
+        "Child’s Pose",
+        "Hip Flexor Stretch",
+        "Seated Forward Fold",
+        "Thoracic Rotation Stretch",
+        "Standing Quad Stretch",
+        "Calf Stretch",
+        "Butterfly Stretch",
+        "Chest Stretch",
+        "Shoulder Stretch",
+        "Triceps Stretch",
+        "Side Bend Stretch",
+        "Lying Spinal Twist",
+        "Pigeon Pose",
+        "Figure Four Stretch",
+        "Overhead Stretch",
+        "Hamstring Stretch",
+        "Cat-Cow Stretch",
+        "Dynamic Chest Opener",
+        "Cobra Pose",
+        "Seated Torso Twist",
+        "Neck Stretch",
+        "Wrist Stretch",
+        "Ankle Stretch",
+        "Side Plank Stretch",
+        "Lower Back Stretch",
+        "Quadriceps Stretch",
+        "Banded Shoulder Stretch",
+        "Dynamic Hip Opener",
       ];
 
       /* ====================================
@@ -716,7 +1134,10 @@
         currentMobilisationExercises = [];
         let html = `<strong>Mobilisation (5 Minuten):</strong>`;
         selected.forEach((ex) => {
-          currentMobilisationExercises.push({ name: ex, instruction: "60 Sek." });
+          currentMobilisationExercises.push({
+            name: ex,
+            instruction: "60 Sek.",
+          });
           html += renderExerciseItem(ex, "60 Sek.");
         });
         document.getElementById("mobilisation-exercises").innerHTML = html;
@@ -729,7 +1150,8 @@
           return;
         }
         if (mobilisationIndex >= currentMobilisationExercises.length) {
-          document.getElementById("mobilisation-timer").innerHTML = "Alle Mobilisation Übungen sind abgeschlossen.";
+          document.getElementById("mobilisation-timer").innerHTML =
+            "Alle Mobilisation Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("mobilisation-timer");
@@ -743,10 +1165,32 @@
         let exercise = currentMobilisationExercises[mobilisationIndex];
         let timeLeft = TIME_MOBILISATION;
         const timerDisplay = document.getElementById("mobilisation-timer");
-        timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + "/" + currentMobilisationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (mobilisationIndex + 1) +
+          "/" +
+          currentMobilisationExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         mobilisationIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + "/" + currentMobilisationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (mobilisationIndex + 1) +
+            "/" +
+            currentMobilisationExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -756,7 +1200,8 @@
           if (timeLeft <= 0) {
             clearInterval(mobilisationIntervalId);
             mobilisationIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (mobilisationIndex + 1) + " abgeschlossen.";
             mobilisationIndex++;
             setTimeout(startMobilisationTimer, 1000);
           }
@@ -774,7 +1219,10 @@
         currentKoordinationExercises = [];
         let html = `<strong>Koordination & Aktivierung (7 Minuten):</strong>`;
         selected.forEach((ex) => {
-          currentKoordinationExercises.push({ name: ex, instruction: "105 Sek." });
+          currentKoordinationExercises.push({
+            name: ex,
+            instruction: "105 Sek.",
+          });
           html += renderExerciseItem(ex, "105 Sek.");
         });
         document.getElementById("koordination-exercises").innerHTML = html;
@@ -787,7 +1235,8 @@
           return;
         }
         if (koordinationIndex >= currentKoordinationExercises.length) {
-          document.getElementById("koordination-timer").innerHTML = "Alle Koordination & Aktivierung Übungen sind abgeschlossen.";
+          document.getElementById("koordination-timer").innerHTML =
+            "Alle Koordination & Aktivierung Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("koordination-timer");
@@ -801,10 +1250,32 @@
         let exercise = currentKoordinationExercises[koordinationIndex];
         let timeLeft = TIME_KOORDINATION;
         const timerDisplay = document.getElementById("koordination-timer");
-        timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + "/" + currentKoordinationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (koordinationIndex + 1) +
+          "/" +
+          currentKoordinationExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         koordinationIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + "/" + currentKoordinationExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (koordinationIndex + 1) +
+            "/" +
+            currentKoordinationExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -814,7 +1285,8 @@
           if (timeLeft <= 0) {
             clearInterval(koordinationIntervalId);
             koordinationIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (koordinationIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (koordinationIndex + 1) + " abgeschlossen.";
             koordinationIndex++;
             setTimeout(startKoordinationTimer, 1000);
           }
@@ -857,7 +1329,8 @@
           return;
         }
         if (strengthIndex >= currentStrengthExercises.length) {
-          document.getElementById("strength-timer").innerHTML = "Alle Strength & Power Übungen sind abgeschlossen.";
+          document.getElementById("strength-timer").innerHTML =
+            "Alle Strength & Power Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("strength-timer");
@@ -871,10 +1344,32 @@
         let exercise = currentStrengthExercises[strengthIndex];
         let timeLeft = TIME_STRENGTH;
         const timerDisplay = document.getElementById("strength-timer");
-        timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + "/" + currentStrengthExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (strengthIndex + 1) +
+          "/" +
+          currentStrengthExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         strengthIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + "/" + currentStrengthExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (strengthIndex + 1) +
+            "/" +
+            currentStrengthExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -884,7 +1379,8 @@
           if (timeLeft <= 0) {
             clearInterval(strengthIntervalId);
             strengthIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (strengthIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (strengthIndex + 1) + " abgeschlossen.";
             strengthIndex++;
             setTimeout(startStrengthTimer, 1000);
           }
@@ -915,7 +1411,8 @@
           return;
         }
         if (cardioIndex >= currentCardioExercises.length) {
-          document.getElementById("cardio-timer").innerHTML = "Alle Cardio Übungen sind abgeschlossen.";
+          document.getElementById("cardio-timer").innerHTML =
+            "Alle Cardio Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("cardio-timer");
@@ -929,10 +1426,32 @@
         let exercise = currentCardioExercises[cardioIndex];
         let timeLeft = TIME_CARDIO;
         const timerDisplay = document.getElementById("cardio-timer");
-        timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + "/" + currentCardioExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (cardioIndex + 1) +
+          "/" +
+          currentCardioExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         cardioIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + "/" + currentCardioExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (cardioIndex + 1) +
+            "/" +
+            currentCardioExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -942,7 +1461,8 @@
           if (timeLeft <= 0) {
             clearInterval(cardioIntervalId);
             cardioIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (cardioIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (cardioIndex + 1) + " abgeschlossen.";
             cardioIndex++;
             setTimeout(startCardioTimer, 1000);
           }
@@ -956,10 +1476,19 @@
           hiitIntervalId = null;
         }
         hiitIndex = 0;
-        const selected = getRandomElements(hiitExercises, 4);
+        // Fixe Übungen, die immer enthalten sein sollen
+        let fixedExercises = ["Klimmzug", "Liegestütz"];
+        // Wähle 2 zufällige Übungen aus dem hiitExercises-Array
+        let randomSelected = getRandomElements(hiitExercises, 2);
         currentHIITExercises = [];
         let html = `<strong>HIIT (10 Minuten, AMRAP):</strong>`;
-        selected.forEach((ex) => {
+        // Zuerst die fixen Übungen hinzufügen
+        fixedExercises.forEach((ex) => {
+          currentHIITExercises.push({ name: ex, instruction: "150 Sek." });
+          html += renderExerciseItem(ex, "150 Sek.");
+        });
+        // Dann die zufällig ausgewählten Übungen ergänzen
+        randomSelected.forEach((ex) => {
           currentHIITExercises.push({ name: ex, instruction: "150 Sek." });
           html += renderExerciseItem(ex, "150 Sek.");
         });
@@ -973,7 +1502,8 @@
           return;
         }
         if (hiitIndex >= currentHIITExercises.length) {
-          document.getElementById("hiit-timer").innerHTML = "Alle HIIT Übungen sind abgeschlossen.";
+          document.getElementById("hiit-timer").innerHTML =
+            "Alle HIIT Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("hiit-timer");
@@ -987,10 +1517,32 @@
         let exercise = currentHIITExercises[hiitIndex];
         let timeLeft = TIME_HIIT;
         const timerDisplay = document.getElementById("hiit-timer");
-        timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + "/" + currentHIITExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (hiitIndex + 1) +
+          "/" +
+          currentHIITExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         hiitIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + "/" + currentHIITExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (hiitIndex + 1) +
+            "/" +
+            currentHIITExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1000,7 +1552,8 @@
           if (timeLeft <= 0) {
             clearInterval(hiitIntervalId);
             hiitIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (hiitIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (hiitIndex + 1) + " abgeschlossen.";
             hiitIndex++;
             setTimeout(startHIITTimer, 1000);
           }
@@ -1031,7 +1584,8 @@
           return;
         }
         if (cooldownIndex >= currentCooldownExercises.length) {
-          document.getElementById("cooldown-timer").innerHTML = "Alle Cooldown Übungen sind abgeschlossen.";
+          document.getElementById("cooldown-timer").innerHTML =
+            "Alle Cooldown Übungen sind abgeschlossen.";
           return;
         }
         const timerDisplay = document.getElementById("cooldown-timer");
@@ -1045,10 +1599,32 @@
         let exercise = currentCooldownExercises[cooldownIndex];
         let timeLeft = TIME_COOLDOWN;
         const timerDisplay = document.getElementById("cooldown-timer");
-        timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + "/" + currentCooldownExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+        timerDisplay.innerHTML =
+          "Übung " +
+          (cooldownIndex + 1) +
+          "/" +
+          currentCooldownExercises.length +
+          ": " +
+          exercise.name +
+          " (" +
+          exercise.instruction +
+          ") - " +
+          timeLeft +
+          " Sek.";
         cooldownIntervalId = setInterval(function () {
           timeLeft--;
-          timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + "/" + currentCooldownExercises.length + ": " + exercise.name + " (" + exercise.instruction + ") - " + timeLeft + " Sek.";
+          timerDisplay.innerHTML =
+            "Übung " +
+            (cooldownIndex + 1) +
+            "/" +
+            currentCooldownExercises.length +
+            ": " +
+            exercise.name +
+            " (" +
+            exercise.instruction +
+            ") - " +
+            timeLeft +
+            " Sek.";
           if (timeLeft <= 5 && timeLeft > 0) {
             beep.pause();
             beep.currentTime = 0;
@@ -1058,7 +1634,8 @@
           if (timeLeft <= 0) {
             clearInterval(cooldownIntervalId);
             cooldownIntervalId = null;
-            timerDisplay.innerHTML = "Übung " + (cooldownIndex + 1) + " abgeschlossen.";
+            timerDisplay.innerHTML =
+              "Übung " + (cooldownIndex + 1) + " abgeschlossen.";
             cooldownIndex++;
             setTimeout(startCooldownTimer, 1000);
           }
