@@ -401,15 +401,16 @@
       /*******************************
        * Audio-Setup
        *******************************/
-      const audioContext = new (window.AudioContext ||
-        window.webkitAudioContext)();
-      if (audioContext.setCategory) {
-        audioContext.setCategory("ambient", {
-          mode: "default",
-          allowBluetooth: true,
-          mixWithOthers: true,
-        });
-      }
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+if (audioContext.setCategory) {
+  audioContext.setCategory("ambient", {
+    mode: "default",
+    allowBluetooth: true,
+    mixWithOthers: true,
+    duckOthers: false   // verhindert das "Ducken" anderer Audioquellen
+  });
+}
+
       // Beep- und Countdown-Sounds
       const beep = new Audio(
         "https://www.myinstants.com/media/sounds/beep.mp3"
