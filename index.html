@@ -401,13 +401,16 @@
       /*******************************
        * Audio-Setup
        *******************************/
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-if (audioContext.setCategory) {
-  audioContext.setCategory("ambient", {
-    mode: "default",
-    allowBluetooth: true,
-    mixWithOthers: true,
-    duckOthers: false   // verhindert das "Ducken" anderer Audioquellen
+      let audioContext;
+function unlockAudioContext() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioContext.setCategory) {
+      audioContext.setCategory("ambient", {
+        mode: "default",
+        allowBluetooth: true,
+        mixWithOthers: true,
+        duckOthers: false
   });
 }
 
